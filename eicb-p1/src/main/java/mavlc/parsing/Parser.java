@@ -24,9 +24,11 @@ import mavlc.syntax.type.*;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import static mavlc.parsing.Token.TokenType.*;
+import static mavlc.syntax.expression.Compare.Comparison.*;
 
 /* TODO enter group information
  *
@@ -133,13 +135,38 @@ public final class Parser {
 	}
 	
 	private RecordTypeDeclaration parseRecordTypeDeclaration() {
-		// TODO implement method (task 1.7)
-		throw new UnsupportedOperationException();
+		SourceLocation loc = currentToken.sourceLocation;
+		accept(RECORD);
+		String recordName = accept(ID);
+		accept(LBRACE);
+		List<RecordElementDeclaration> elementList = new LinkedList<>();
+		RecordElementDeclaration recordElement;
+		do { // recordElemDecl+
+			recordElement = parseRecordElementDeclaration();
+			elementList.add(recordElement);
+		} while (currentToken.type == VAR || currentToken.type == VAL);
+		accept(RBRACE);
+        return new RecordTypeDeclaration(loc, recordName, elementList);
 	}
 	
 	private RecordElementDeclaration parseRecordElementDeclaration() {
-		// TODO implement method (task 1.7)
-		throw new UnsupportedOperationException();
+		SourceLocation loc = currentToken.sourceLocation;
+		boolean isVar = false;
+
+		switch (currentToken.type) {
+			case VAR:
+				isVar = true;
+			case VAL:
+				acceptIt();
+				break;
+			default:
+				throw new SyntaxError(currentToken, VAR, VAL);
+		}
+
+		TypeSpecifier<?> typeSpec = parseTypeSpecifier();
+		String elementName = accept(ID);
+		accept(SEMICOLON);
+        return new RecordElementDeclaration(loc, isVar, typeSpec, elementName);
 	}
 	
 	private IteratorDeclaration parseIteratorDeclaration() {
@@ -251,7 +278,6 @@ public final class Parser {
 	}
 	
 	private ValueDefinition parseValueDef() {
-		// TODO implement method (task 1.1)
 		SourceLocation loc = currentToken.sourceLocation;
 		accept(VAL);
 		TypeSpecifier<?> parsedType = parseTypeSpecifier();
@@ -263,7 +289,6 @@ public final class Parser {
 	}
 	
 	private VariableDeclaration parseVarDecl() {
-		// TODO implement method (task 1.1)
 		SourceLocation srcLoc = currentToken.sourceLocation;
 		accept(VAR);
 		TypeSpecifier<?> parsedType = parseTypeSpecifier();
@@ -273,8 +298,11 @@ public final class Parser {
 	}
 	
 	private ReturnStatement parseReturn() {
-		// TODO implement method (task 1.6)
-		throw new UnsupportedOperationException();
+		SourceLocation loc = currentToken.sourceLocation;
+		accept(RETURN);
+		Expression returnExpr = parseExpr();
+		accept(SEMICOLON);
+		return new ReturnStatement(loc, returnExpr);
 	}
 	
 	private Statement parseAssignOrCall() {
@@ -287,10 +315,8 @@ public final class Parser {
 			s = parseAssign(name, location);
 		}
 		else {
-			// TODO extend method (task 1.6)
-			throw new UnsupportedOperationException();
+			s = new CallStatement(location, parseCall(name, location));
 		}
-
 
 		accept(SEMICOLON);
 
@@ -298,7 +324,6 @@ public final class Parser {
 	}
 	
 	private VariableAssignment parseAssign(String name, SourceLocation location) {
-		// TODO implement method (task 1.1)
 		VariableAssignment assignment;
 		LeftHandIdentifier id = new LeftHandIdentifier(location, name);
 		if (currentToken.type != ASSIGN) {
@@ -332,8 +357,21 @@ public final class Parser {
 	}
 	
 	private CallExpression parseCall(String name, SourceLocation location) {
-		// TODO implement method (task 1.6)
-		throw new UnsupportedOperationException();
+		CallExpression callExpr;
+		List<Expression> params = new LinkedList<>(); // List of parameters for the function call
+		accept(LPAREN);
+		if (currentToken.type != RPAREN) {
+			Expression param = parseExpr();
+			params.add(param);
+			while (currentToken.type == COMMA) {
+				acceptIt();
+				param = parseExpr();
+				params.add(param);
+			}
+		}
+		accept(RPAREN);
+		callExpr = new CallExpression(location, name, params);
+		return callExpr;
 	}
 	
 	private ForLoop parseFor() {
@@ -367,8 +405,19 @@ public final class Parser {
 	}
 	
 	private IfStatement parseIf() {
-		// TODO implement method (task 1.3)
-		throw new UnsupportedOperationException();
+		SourceLocation loc = currentToken.sourceLocation;
+		accept(IF);
+		accept(LPAREN);
+		Expression cond = parseExpr();
+		accept(RPAREN);
+		Statement stmt1 = parseStatement();
+		IfStatement ifStmt = new IfStatement(loc, cond, stmt1);
+		if (currentToken.type == ELSE) {
+			acceptIt();
+			Statement stmt2 = parseStatement();
+			ifStmt = new IfStatement(loc, cond, stmt1, stmt2);
+		}
+		return ifStmt;
 	}
 	
 	private SwitchStatement parseSwitch() {
@@ -430,9 +479,14 @@ public final class Parser {
 	
 	private Expression parseSelect() {
 		SourceLocation location = currentToken.sourceLocation;
-		
 		Expression cond = parseOr();
-		// TODO extend method (task 1.5)
+		while (currentToken.type == QMARK) {
+			acceptIt();
+			Expression trueExpr = parseExpr();
+			accept(COLON);
+			Expression falseExpr = parseExpr();
+			cond = new SelectExpression(location, cond, trueExpr, falseExpr);
+		}
 		return cond;
 	}
 	
@@ -459,47 +513,99 @@ public final class Parser {
 	}
 	
 	private Expression parseNot() {
-		// TODO extend method (task 1.2)
-		
+		SourceLocation loc = currentToken.sourceLocation;
+		if (currentToken.type == NOT) {
+			acceptIt();
+			return new Not(loc, parseCompare());
+		}
 		return parseCompare();
 	}
 	
 	private Expression parseCompare() {
-		SourceLocation location = currentToken.sourceLocation;
-		
-		Expression x = parseAddSub();
-
-		// TODO extend method (task 1.2)
-		return x;
+		SourceLocation loc = currentToken.sourceLocation;
+		Expression leftExpr = parseAddSub();
+		while (currentToken.type == LANGLE || currentToken.type == RANGLE || currentToken.type == CMPLE ||
+				currentToken.type == CMPGE || currentToken.type == CMPEQ || currentToken.type == CMPNE) {
+			Expression rightExpr;
+			switch (currentToken.type) {
+				case LANGLE:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, LESS);
+					break;
+				case RANGLE:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, GREATER);
+					break;
+				case CMPLE:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, LESS_EQUAL);
+					break;
+				case CMPGE:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, GREATER_EQUAL);
+					break;
+				case CMPEQ:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, EQUAL);
+					break;
+				case CMPNE:
+					acceptIt();
+					rightExpr = parseAddSub();
+					leftExpr = new Compare(loc, leftExpr, rightExpr, NOT_EQUAL);
+					break;
+				default:
+					throw new SyntaxError(currentToken, LANGLE, RANGLE, CMPLE, CMPGE, CMPEQ, CMPNE);
+			}
+		}
+		return leftExpr;
 	}
 	
 	private Expression parseAddSub() {
-		SourceLocation location = currentToken.sourceLocation;
-
-		Expression x = parseMulDiv();
-		// TODO extend method (task 1.2)
-		return x;
+		SourceLocation loc = currentToken.sourceLocation;
+		Expression leftExpr = parseMulDiv();
+		while (currentToken.type == ADD || currentToken.type == SUB) {
+			boolean isAddition = currentToken.type == ADD;
+			acceptIt();
+			Expression rightExpr = parseMulDiv();
+			leftExpr = isAddition ? new Addition(loc, leftExpr, rightExpr) : new Subtraction(loc, leftExpr, rightExpr);
+		}
+		return leftExpr;
 	}
 	
 	private Expression parseMulDiv() {
-		SourceLocation location = currentToken.sourceLocation;
-
-		Expression x = parseUnaryMinus();
-		// TODO extend method (task 1.2)
-		return x;
+		SourceLocation loc = currentToken.sourceLocation;
+		Expression leftExpr = parseUnaryMinus();
+		while (currentToken.type == MULT || currentToken.type == DIV) {
+			boolean isMultiplication = currentToken.type == MULT;
+			acceptIt();
+			Expression rightExpr = parseUnaryMinus();
+			leftExpr = isMultiplication ? new Multiplication(loc, leftExpr, rightExpr) : new Division(loc, leftExpr, rightExpr);
+		}
+		return leftExpr;
 	}
 	
 	private Expression parseUnaryMinus() {
-		// TODO extend method (task 1.2)
+		SourceLocation loc = currentToken.sourceLocation;
+		if (currentToken.type == SUB) {
+			acceptIt();
+			return new UnaryMinus(loc, parseExponentiation());
+		}
 		return parseExponentiation();
 	}
 	
 	private Expression parseExponentiation() {
-		SourceLocation location = currentToken.sourceLocation;
-
-		Expression left = parseDotProd();
-		// TODO extend method (task 1.2)
-		return left;
+		SourceLocation loc = currentToken.sourceLocation;
+		Expression leftExpr = parseDotProd();
+		if (currentToken.type == EXP) {
+			acceptIt();
+			return new Exponentiation(loc, leftExpr, parseExponentiation());
+		}
+		return leftExpr;
 	}
 	
 	private Expression parseDotProd() {
@@ -525,7 +631,11 @@ public final class Parser {
 	}
 	
 	private Expression parseTranspose() {
-		// TODO extend method (task 1.2)
+		SourceLocation loc = currentToken.sourceLocation;
+		if (currentToken.type == TRANSPOSE) {
+			acceptIt();
+			return new MatrixTranspose(loc, parseDim());
+		}
 		return parseDim();
 	}
 	
@@ -597,7 +707,13 @@ public final class Parser {
 		
 		Expression x = parseAtom();
 
-		// TODO extend method (task 1.7)
+		while (currentToken.type == LBRACKET) {
+			acceptIt();
+			Expression index = parseExpr();
+			accept(RBRACKET);
+			x = new ElementSelect(location, x, index);
+		}
+
 
 		return x;
 	}
@@ -610,7 +726,8 @@ public final class Parser {
 				return new IntValue(location, parseIntLit());
 			case FLOATLIT:
 				return new FloatValue(location, parseFloatLit());
-			// TODO extend method (task 1.4)
+			case BOOLLIT:
+				return new BoolValue(location, parseBoolLit());
 			case STRINGLIT:
 				return new StringValue(location, accept(STRINGLIT));
 			default: /* check other cases below */
@@ -621,7 +738,9 @@ public final class Parser {
 			if(currentToken.type != LPAREN) {
 				return new IdentifierReference(location, name);
 			}
-			// TODO extend method (task 1.6)
+			else {
+				return parseCall(name, location);
+			}
 		}
 
 		if(currentToken.type == LPAREN) {
@@ -631,7 +750,12 @@ public final class Parser {
 			return x;
 		}
 
-		// TODO extend method (task 1.7)
+		if(currentToken.type == AT){
+			acceptIt();
+			String element = accept(ID);
+			return new RecordInit(location, element, parseInitializerList());
+		}
+
 		
 		if(currentToken.type == LBRACKET) {
 			return new StructureInit(location, parseInitializerList());
@@ -663,7 +787,6 @@ public final class Parser {
 	}
 	
 	private boolean parseBoolLit() {
-		// TODO implement method (task 1.4)
-		throw new UnsupportedOperationException();
+		return Boolean.parseBoolean(accept(BOOLLIT));
 	}
 }

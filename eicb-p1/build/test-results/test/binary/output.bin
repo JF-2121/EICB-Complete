@@ -15,31 +15,73 @@
 
 4=== Running test case p1_public/task_2/arith_1 ===
 
+
+B=== Test case p1_public/task_2/arith_1 finished successfully ===
+
 2=== Running test case p1_public/task_2/exp_1 ===
+
+
+@=== Test case p1_public/task_2/exp_1 finished successfully ===
 
 2=== Running test case p1_public/task_2/not_1 ===
 
+
+@=== Test case p1_public/task_2/not_1 finished successfully ===
+
 1=== Running test case p1_public/task_3/if_1 ===
 
+
+?=== Test case p1_public/task_3/if_1 finished successfully ===
+
 	1=== Running test case p1_public/task_3/if_2 ===
+	
+	
+	?=== Test case p1_public/task_3/if_2 finished successfully ===
 	
 
 3=== Running test case p1_public/task_4/bool_1 ===
 
 
+
+
+
+A=== Test case p1_public/task_4/bool_1 finished successfully ===
+
+
 5=== Running test case p1_public/task_5/select_1 ===
+
+
+C=== Test case p1_public/task_5/select_1 finished successfully ===
 
 5=== Running test case p1_public/task_5/select_2 ===
 
+
+C=== Test case p1_public/task_5/select_2 finished successfully ===
+
 3=== Running test case p1_public/task_6/call_1 ===
+
+
+A=== Test case p1_public/task_6/call_1 finished successfully ===
 
 3=== Running test case p1_public/task_6/call_2 ===
 
+
+A=== Test case p1_public/task_6/call_2 finished successfully ===
+
 5=== Running test case p1_public/task_6/return_1 ===
+
+
+C=== Test case p1_public/task_6/return_1 finished successfully ===
 
 7=== Running test case p1_public/task_7/rec_atom_1 ===
 
+
+E=== Test case p1_public/task_7/rec_atom_1 finished successfully ===
+
 6=== Running test case p1_public/task_7/rec_dec_1 ===
+
+
+D=== Test case p1_public/task_7/rec_dec_1 finished successfully ===
 
 6=== Running test case p1_public/task_7/rec_sel_1 ===
 
