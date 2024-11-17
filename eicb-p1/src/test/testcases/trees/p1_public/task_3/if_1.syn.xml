@@ -1,0 +1,19 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <IfStatement line="2" column="4">
+          <condition class="IdentifierReference" line="2" column="7" name="a"/>
+          <thenStatement class="CompoundStatement" line="2" column="10">
+            <statements/>
+          </thenStatement>
+        </IfStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

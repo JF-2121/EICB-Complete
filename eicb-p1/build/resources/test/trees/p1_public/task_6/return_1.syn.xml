@@ -1,0 +1,19 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ReturnStatement line="2" column="4">
+          <returnValue class="Or" line="2" column="11">
+            <leftOperand class="IdentifierReference" line="2" column="11" name="a"/>
+            <rightOperand class="IdentifierReference" line="2" column="15" name="b"/>
+          </returnValue>
+        </ReturnStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

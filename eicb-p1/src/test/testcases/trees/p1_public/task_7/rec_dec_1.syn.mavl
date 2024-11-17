@@ -1,0 +1,6 @@
+record foo {
+	var int a;
+}
+record bar {
+	val int a;
+}

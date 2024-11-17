@@ -1,0 +1,20 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <CallStatement line="2" column="4">
+          <callExpression line="2" column="4" functionName="foo">
+            <actualParameters>
+              <IdentifierReference line="2" column="8" name="n"/>
+            </actualParameters>
+          </callExpression>
+        </CallStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

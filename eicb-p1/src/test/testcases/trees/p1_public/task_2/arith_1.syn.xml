@@ -1,0 +1,46 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <SwitchStatement line="2" column="4">
+          <condition class="Compare" line="2" column="12">
+            <leftOperand class="Multiplication" line="2" column="12">
+              <leftOperand class="Multiplication" line="2" column="12">
+                <leftOperand class="IntValue" line="2" column="12" value="5">
+                  <type class="IntType"/>
+                </leftOperand>
+                <rightOperand class="IntValue" line="2" column="16" value="5">
+                  <type class="IntType"/>
+                </rightOperand>
+              </leftOperand>
+              <rightOperand class="IntValue" line="2" column="20" value="5">
+                <type class="IntType"/>
+              </rightOperand>
+            </leftOperand>
+            <rightOperand class="Division" line="2" column="24">
+              <leftOperand class="Division" line="2" column="24">
+                <leftOperand class="IntValue" line="2" column="24" value="7">
+                  <type class="IntType"/>
+                </leftOperand>
+                <rightOperand class="IntValue" line="2" column="28" value="7">
+                  <type class="IntType"/>
+                </rightOperand>
+              </leftOperand>
+              <rightOperand class="IntValue" line="2" column="32" value="7">
+                <type class="IntType"/>
+              </rightOperand>
+            </rightOperand>
+            <comparator>GREATER</comparator>
+          </condition>
+          <cases/>
+          <defaults/>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

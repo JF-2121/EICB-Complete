@@ -1,0 +1,45 @@
+5=== Running test case p1_public/task_1/assign_1 ===
+
+
+C=== Test case p1_public/task_1/assign_1 finished successfully ===
+
+2=== Running test case p1_public/task_1/val_1 ===
+
+
+@=== Test case p1_public/task_1/val_1 finished successfully ===
+
+2=== Running test case p1_public/task_1/var_1 ===
+
+
+@=== Test case p1_public/task_1/var_1 finished successfully ===
+
+4=== Running test case p1_public/task_2/arith_1 ===
+
+2=== Running test case p1_public/task_2/exp_1 ===
+
+2=== Running test case p1_public/task_2/not_1 ===
+
+1=== Running test case p1_public/task_3/if_1 ===
+
+	1=== Running test case p1_public/task_3/if_2 ===
+	
+
+3=== Running test case p1_public/task_4/bool_1 ===
+
+
+5=== Running test case p1_public/task_5/select_1 ===
+
+5=== Running test case p1_public/task_5/select_2 ===
+
+3=== Running test case p1_public/task_6/call_1 ===
+
+3=== Running test case p1_public/task_6/call_2 ===
+
+5=== Running test case p1_public/task_6/return_1 ===
+
+7=== Running test case p1_public/task_7/rec_atom_1 ===
+
+6=== Running test case p1_public/task_7/rec_dec_1 ===
+
+6=== Running test case p1_public/task_7/rec_sel_1 ===
+

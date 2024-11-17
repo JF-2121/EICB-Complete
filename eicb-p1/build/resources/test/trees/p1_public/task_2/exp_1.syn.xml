@@ -1,0 +1,25 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <SwitchStatement line="2" column="4">
+          <condition class="Exponentiation" line="2" column="12">
+            <leftOperand class="IntValue" line="2" column="12" value="1">
+              <type class="IntType"/>
+            </leftOperand>
+            <rightOperand class="IntValue" line="2" column="16" value="2">
+              <type class="IntType"/>
+            </rightOperand>
+          </condition>
+          <cases/>
+          <defaults/>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

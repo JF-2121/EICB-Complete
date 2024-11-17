@@ -1,0 +1,44 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# Literal 1
+node2 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node3:s -> node2:n
+node3 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 2
+node4 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node5:s -> node4:n
+node5 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Exponentiation
+node6:p0:s -> node3:n
+node6:p1:s -> node5:n
+node6 [label="{Exponentiation|{<p0>Left|<p1>Right}}", tooltip="Exponentiation"]
+
+# PortNode Switch
+node7:p0:s -> node6:n
+node7 [label="{Switch|{<p0>Value|{Cases|{}}}}", tooltip="Switch"]
+
+# PortNode Function
+node8:p0:s -> node0:n
+node8:p1:s -> node1:n
+node8:p3_0:s -> node7:n
+node8 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node9:p1_0:s -> node8:n
+node9 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

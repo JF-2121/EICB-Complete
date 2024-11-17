@@ -1,0 +1,3 @@
+
+Syntax error in line 2, column 13:
+> Got token <rbrace '}'> but expected semicolon.

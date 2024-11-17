@@ -1,0 +1,23 @@
+<Module line="1" column="0">
+  <functions/>
+  <records>
+    <RecordTypeDeclaration line="1" column="0" name="foo">
+      <elements>
+        <RecordElementDeclaration line="2" column="4" name="a" isVariable="true">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+        </RecordElementDeclaration>
+      </elements>
+    </RecordTypeDeclaration>
+    <RecordTypeDeclaration line="4" column="0" name="bar">
+      <elements>
+        <RecordElementDeclaration line="5" column="4" name="a" isVariable="false">
+          <typeSpecifier class="IntTypeSpecifier" line="5" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+        </RecordElementDeclaration>
+      </elements>
+    </RecordTypeDeclaration>
+  </records>
+</Module>

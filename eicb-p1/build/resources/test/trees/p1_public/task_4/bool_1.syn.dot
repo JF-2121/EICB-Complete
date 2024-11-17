@@ -1,0 +1,32 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# Literal true
+node2 [shape=box, label="true", fillcolor="#cccccc", tooltip="true"]
+
+# SimpleNode BoolLiteral
+node3:s -> node2:n
+node3 [label="BoolLiteral", tooltip="BoolLiteral"]
+
+# PortNode Switch
+node4:p0:s -> node3:n
+node4 [label="{Switch|{<p0>Value|{Cases|{}}}}", tooltip="Switch"]
+
+# PortNode Function
+node5:p0:s -> node0:n
+node5:p1:s -> node1:n
+node5:p3_0:s -> node4:n
+node5 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node6:p1_0:s -> node5:n
+node6 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

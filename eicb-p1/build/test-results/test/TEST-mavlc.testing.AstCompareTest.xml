@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mavlc.testing.AstCompareTest" tests="17" skipped="0" failures="14" errors="0" timestamp="2024-11-17T11:56:09" hostname="DESKTOP-NC4RSIU" time="0.422">
+  <properties/>
+  <testcase name="test[p1_public/task_1/assign_1]" classname="mavlc.testing.AstCompareTest" time="0.291"/>
+  <testcase name="test[p1_public/task_1/val_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_1/var_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p1_public/task_2/arith_1]" classname="mavlc.testing.AstCompareTest" time="0.012">
+    <failure message="&#10;Syntax error in line 2, column 14:&#10;&gt; Got token &lt;mult '*'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 14:
+&gt; Got token &lt;mult '*'&gt; but expected rparen.
+	at app//mavlc.parsing.Parser.accept(Parser.java:87)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:379)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_2/exp_1]" classname="mavlc.testing.AstCompareTest" time="0.007">
+    <failure message="&#10;Syntax error in line 2, column 14:&#10;&gt; Got token &lt;exp '^'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 14:
+&gt; Got token &lt;exp '^'&gt; but expected rparen.
+	at app//mavlc.parsing.Parser.accept(Parser.java:87)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:379)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_2/not_1]" classname="mavlc.testing.AstCompareTest" time="0.008">
+    <failure message="&#10;Syntax error in line 2, column 12:&#10;&gt; Got token &lt;not '!'&gt;, but expected one of the following:&#10;&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit&#10;" type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 12:
+&gt; Got token &lt;not '!'&gt;, but expected one of the following:
+&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit
+
+	at app//mavlc.parsing.Parser.parseAtom(Parser.java:640)
+	at app//mavlc.parsing.Parser.parseRecordElementSelect(Parser.java:598)
+	at app//mavlc.parsing.Parser.parseElementSelect(Parser.java:583)
+	at app//mavlc.parsing.Parser.parseSubRange(Parser.java:554)
+	at app//mavlc.parsing.Parser.parseDim(Parser.java:535)
+	at app//mavlc.parsing.Parser.parseTranspose(Parser.java:529)
+	at app//mavlc.parsing.Parser.parseMatrixMul(Parser.java:519)
+	at app//mavlc.parsing.Parser.parseDotProd(Parser.java:508)
+	at app//mavlc.parsing.Parser.parseExponentiation(Parser.java:500)
+	at app//mavlc.parsing.Parser.parseUnaryMinus(Parser.java:494)
+	at app//mavlc.parsing.Parser.parseMulDiv(Parser.java:487)
+	at app//mavlc.parsing.Parser.parseAddSub(Parser.java:479)
+	at app//mavlc.parsing.Parser.parseCompare(Parser.java:470)
+	at app//mavlc.parsing.Parser.parseNot(Parser.java:464)
+	at app//mavlc.parsing.Parser.parseAnd(Parser.java:453)
+	at app//mavlc.parsing.Parser.parseOr(Parser.java:442)
+	at app//mavlc.parsing.Parser.parseSelect(Parser.java:434)
+	at app//mavlc.parsing.Parser.parseExpr(Parser.java:428)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:378)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_3/if_1]" classname="mavlc.testing.AstCompareTest" time="0.007">
+    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
+	at mavlc.parsing.Parser.parseIf(Parser.java:371)
+	at mavlc.parsing.Parser.parseStatement(Parser.java:243)
+	at mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at mavlc.parsing.Parser.parse(Parser.java:72)
+	at mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_3/if_2]" classname="mavlc.testing.AstCompareTest" time="0.008">
+    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
+	at mavlc.parsing.Parser.parseIf(Parser.java:371)
+	at mavlc.parsing.Parser.parseStatement(Parser.java:243)
+	at mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at mavlc.parsing.Parser.parse(Parser.java:72)
+	at mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_4/bool_1]" classname="mavlc.testing.AstCompareTest" time="0.006">
+    <failure message="&#10;Syntax error in line 2, column 12:&#10;&gt; Got token &lt;boollit 'true'&gt;, but expected one of the following:&#10;&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit&#10;" type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 12:
+&gt; Got token &lt;boollit 'true'&gt;, but expected one of the following:
+&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit
+
+	at app//mavlc.parsing.Parser.parseAtom(Parser.java:640)
+	at app//mavlc.parsing.Parser.parseRecordElementSelect(Parser.java:598)
+	at app//mavlc.parsing.Parser.parseElementSelect(Parser.java:583)
+	at app//mavlc.parsing.Parser.parseSubRange(Parser.java:554)
+	at app//mavlc.parsing.Parser.parseDim(Parser.java:535)
+	at app//mavlc.parsing.Parser.parseTranspose(Parser.java:529)
+	at app//mavlc.parsing.Parser.parseMatrixMul(Parser.java:519)
+	at app//mavlc.parsing.Parser.parseDotProd(Parser.java:508)
+	at app//mavlc.parsing.Parser.parseExponentiation(Parser.java:500)
+	at app//mavlc.parsing.Parser.parseUnaryMinus(Parser.java:494)
+	at app//mavlc.parsing.Parser.parseMulDiv(Parser.java:487)
+	at app//mavlc.parsing.Parser.parseAddSub(Parser.java:479)
+	at app//mavlc.parsing.Parser.parseCompare(Parser.java:470)
+	at app//mavlc.parsing.Parser.parseNot(Parser.java:464)
+	at app//mavlc.parsing.Parser.parseAnd(Parser.java:453)
+	at app//mavlc.parsing.Parser.parseOr(Parser.java:442)
+	at app//mavlc.parsing.Parser.parseSelect(Parser.java:434)
+	at app//mavlc.parsing.Parser.parseExpr(Parser.java:428)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:378)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_5/select_1]" classname="mavlc.testing.AstCompareTest" time="0.008">
+    <failure message="&#10;Syntax error in line 2, column 12:&#10;&gt; Got token &lt;qmark '?'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 12:
+&gt; Got token &lt;qmark '?'&gt; but expected rparen.
+	at app//mavlc.parsing.Parser.accept(Parser.java:87)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:379)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_5/select_2]" classname="mavlc.testing.AstCompareTest" time="0.007">
+    <failure message="&#10;Syntax error in line 2, column 16:&#10;&gt; Got token &lt;qmark '?'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 16:
+&gt; Got token &lt;qmark '?'&gt; but expected rparen.
+	at app//mavlc.parsing.Parser.accept(Parser.java:87)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:379)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_6/call_1]" classname="mavlc.testing.AstCompareTest" time="0.008">
+    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
+	at mavlc.parsing.Parser.parseAssignOrCall(Parser.java:291)
+	at mavlc.parsing.Parser.parseStatement(Parser.java:237)
+	at mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at mavlc.parsing.Parser.parse(Parser.java:72)
+	at mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_6/call_2]" classname="mavlc.testing.AstCompareTest" time="0.009">
+    <failure message="&#10;Ast mismatch in line 2, column 16:&#10;&gt; Mismatching source location (got line 2, column 16, expected line 2, column 12)&#10;&#10;Tested node:&#10;n&#10;&#10;Reference node:&#10;foo(n)&#10;" type="mavlc.errors.AstMismatchError">
+Ast mismatch in line 2, column 16:
+&gt; Mismatching source location (got line 2, column 16, expected line 2, column 12)
+
+Tested node:
+n
+
+Reference node:
+foo(n)
+
+	at app//mavlc.testing.AstComparator.mismatch(AstComparator.java:40)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:47)
+	at app//mavlc.testing.AstComparator.visitSwitchStatement(AstComparator.java:279)
+	at app//mavlc.testing.AstComparator.visitSwitchStatement(AstComparator.java:33)
+	at app//mavlc.syntax.statement.SwitchStatement.accept(SwitchStatement.java:45)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:50)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:75)
+	at app//mavlc.testing.AstComparator.visitFunction(AstComparator.java:95)
+	at app//mavlc.testing.AstComparator.visitFunction(AstComparator.java:33)
+	at app//mavlc.syntax.function.Function.accept(Function.java:134)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:50)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:75)
+	at app//mavlc.testing.AstComparator.visitModule(AstComparator.java:83)
+	at app//mavlc.testing.AstComparator.visitModule(AstComparator.java:33)
+	at app//mavlc.syntax.module.Module.accept(Module.java:45)
+	at app//mavlc.testing.AstComparator.compare(AstComparator.java:50)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:42)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_6/return_1]" classname="mavlc.testing.AstCompareTest" time="0.006">
+    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
+	at mavlc.parsing.Parser.parseReturn(Parser.java:277)
+	at mavlc.parsing.Parser.parseStatement(Parser.java:235)
+	at mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at mavlc.parsing.Parser.parse(Parser.java:72)
+	at mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_7/rec_atom_1]" classname="mavlc.testing.AstCompareTest" time="0.005">
+    <failure message="&#10;Syntax error in line 2, column 12:&#10;&gt; Got token &lt;at '@'&gt;, but expected one of the following:&#10;&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit&#10;" type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 12:
+&gt; Got token &lt;at '@'&gt;, but expected one of the following:
+&gt; at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit
+
+	at app//mavlc.parsing.Parser.parseAtom(Parser.java:640)
+	at app//mavlc.parsing.Parser.parseRecordElementSelect(Parser.java:598)
+	at app//mavlc.parsing.Parser.parseElementSelect(Parser.java:583)
+	at app//mavlc.parsing.Parser.parseSubRange(Parser.java:554)
+	at app//mavlc.parsing.Parser.parseDim(Parser.java:535)
+	at app//mavlc.parsing.Parser.parseTranspose(Parser.java:529)
+	at app//mavlc.parsing.Parser.parseMatrixMul(Parser.java:519)
+	at app//mavlc.parsing.Parser.parseDotProd(Parser.java:508)
+	at app//mavlc.parsing.Parser.parseExponentiation(Parser.java:500)
+	at app//mavlc.parsing.Parser.parseUnaryMinus(Parser.java:494)
+	at app//mavlc.parsing.Parser.parseMulDiv(Parser.java:487)
+	at app//mavlc.parsing.Parser.parseAddSub(Parser.java:479)
+	at app//mavlc.parsing.Parser.parseCompare(Parser.java:470)
+	at app//mavlc.parsing.Parser.parseNot(Parser.java:464)
+	at app//mavlc.parsing.Parser.parseAnd(Parser.java:453)
+	at app//mavlc.parsing.Parser.parseOr(Parser.java:442)
+	at app//mavlc.parsing.Parser.parseSelect(Parser.java:434)
+	at app//mavlc.parsing.Parser.parseExpr(Parser.java:428)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:378)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_7/rec_dec_1]" classname="mavlc.testing.AstCompareTest" time="0.005">
+    <failure message="java.lang.UnsupportedOperationException" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
+	at mavlc.parsing.Parser.parseRecordTypeDeclaration(Parser.java:137)
+	at mavlc.parsing.Parser.parse(Parser.java:75)
+	at mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="test[p1_public/task_7/rec_sel_1]" classname="mavlc.testing.AstCompareTest" time="0.008">
+    <failure message="&#10;Syntax error in line 2, column 15:&#10;&gt; Got token &lt;at '@'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
+Syntax error in line 2, column 15:
+&gt; Got token &lt;at '@'&gt; but expected rparen.
+	at app//mavlc.parsing.Parser.accept(Parser.java:87)
+	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:379)
+	at app//mavlc.parsing.Parser.parseStatement(Parser.java:245)
+	at app//mavlc.parsing.Parser.parseFunction(Parser.java:120)
+	at app//mavlc.parsing.Parser.parse(Parser.java:72)
+	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
+	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
+	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
+	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
+	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
+	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
+	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <system-out><![CDATA[=== Running test case p1_public/task_1/assign_1 ===
+
+
+=== Test case p1_public/task_1/assign_1 finished successfully ===
+
+=== Running test case p1_public/task_1/val_1 ===
+
+
+=== Test case p1_public/task_1/val_1 finished successfully ===
+
+=== Running test case p1_public/task_1/var_1 ===
+
+
+=== Test case p1_public/task_1/var_1 finished successfully ===
+
+=== Running test case p1_public/task_2/arith_1 ===
+
+=== Running test case p1_public/task_2/exp_1 ===
+
+=== Running test case p1_public/task_2/not_1 ===
+
+=== Running test case p1_public/task_3/if_1 ===
+
+=== Running test case p1_public/task_3/if_2 ===
+
+=== Running test case p1_public/task_4/bool_1 ===
+
+=== Running test case p1_public/task_5/select_1 ===
+
+=== Running test case p1_public/task_5/select_2 ===
+
+=== Running test case p1_public/task_6/call_1 ===
+
+=== Running test case p1_public/task_6/call_2 ===
+
+=== Running test case p1_public/task_6/return_1 ===
+
+=== Running test case p1_public/task_7/rec_atom_1 ===
+
+=== Running test case p1_public/task_7/rec_dec_1 ===
+
+=== Running test case p1_public/task_7/rec_sel_1 ===
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,3 @@
+
+Syntax error in line 2, column 17:
+> Got token <id 'a'> but expected rparen.
