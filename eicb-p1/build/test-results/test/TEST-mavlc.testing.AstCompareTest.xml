@@ -1,49 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="mavlc.testing.AstCompareTest" tests="17" skipped="0" failures="1" errors="0" timestamp="2024-11-17T12:51:46" hostname="DESKTOP-NC4RSIU" time="0.417">
+<testsuite name="mavlc.testing.AstCompareTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2024-11-21T19:04:47" hostname="DESKTOP-NC4RSIU" time="0.431">
   <properties/>
-  <testcase name="test[p1_public/task_1/assign_1]" classname="mavlc.testing.AstCompareTest" time="0.249"/>
+  <testcase name="test[p1_public/task_1/assign_1]" classname="mavlc.testing.AstCompareTest" time="0.256"/>
   <testcase name="test[p1_public/task_1/val_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
-  <testcase name="test[p1_public/task_1/var_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
-  <testcase name="test[p1_public/task_2/arith_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_1/var_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p1_public/task_2/arith_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
   <testcase name="test[p1_public/task_2/exp_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
-  <testcase name="test[p1_public/task_2/not_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
-  <testcase name="test[p1_public/task_3/if_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
-  <testcase name="test[p1_public/task_3/if_2]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
-  <testcase name="test[p1_public/task_4/bool_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
-  <testcase name="test[p1_public/task_5/select_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
-  <testcase name="test[p1_public/task_5/select_2]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
-  <testcase name="test[p1_public/task_6/call_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
-  <testcase name="test[p1_public/task_6/call_2]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
+  <testcase name="test[p1_public/task_2/not_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_3/if_1]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
+  <testcase name="test[p1_public/task_3/if_2]" classname="mavlc.testing.AstCompareTest" time="0.008"/>
+  <testcase name="test[p1_public/task_4/bool_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_5/select_1]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
+  <testcase name="test[p1_public/task_5/select_2]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
+  <testcase name="test[p1_public/task_6/call_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p1_public/task_6/call_2]" classname="mavlc.testing.AstCompareTest" time="0.008"/>
   <testcase name="test[p1_public/task_6/return_1]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
-  <testcase name="test[p1_public/task_7/rec_atom_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
-  <testcase name="test[p1_public/task_7/rec_dec_1]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
-  <testcase name="test[p1_public/task_7/rec_sel_1]" classname="mavlc.testing.AstCompareTest" time="0.009">
-    <failure message="&#10;Syntax error in line 2, column 15:&#10;&gt; Got token &lt;at '@'&gt; but expected rparen." type="mavlc.errors.SyntaxError">
-Syntax error in line 2, column 15:
-&gt; Got token &lt;at '@'&gt; but expected rparen.
-	at app//mavlc.parsing.Parser.accept(Parser.java:89)
-	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:429)
-	at app//mavlc.parsing.Parser.parseStatement(Parser.java:273)
-	at app//mavlc.parsing.Parser.parseFunction(Parser.java:122)
-	at app//mavlc.parsing.Parser.parse(Parser.java:74)
-	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
-	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
-	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
-	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
-	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
-	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
-	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
-	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
-	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
-	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
-</failure>
-  </testcase>
+  <testcase name="test[p1_public/task_7/rec_atom_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p1_public/task_7/rec_dec_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p1_public/task_7/rec_sel_1]" classname="mavlc.testing.AstCompareTest" time="0.009"/>
   <system-out><![CDATA[=== Running test case p1_public/task_1/assign_1 ===
 
 
@@ -125,6 +99,9 @@ Syntax error in line 2, column 15:
 === Test case p1_public/task_7/rec_dec_1 finished successfully ===
 
 === Running test case p1_public/task_7/rec_sel_1 ===
+
+
+=== Test case p1_public/task_7/rec_sel_1 finished successfully ===
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

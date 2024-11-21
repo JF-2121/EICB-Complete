@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.416s</div>
+<div class="counter">0.415s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">94%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,50 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="test[p1_public/task_7/rec_sel_1]"></a>
-<h3 class="failures">test[p1_public/task_7/rec_sel_1]</h3>
-<span class="code">
-<pre>
-Syntax error in line 2, column 15:
-&gt; Got token &lt;at '@'&gt; but expected rparen.
-	at app//mavlc.parsing.Parser.accept(Parser.java:89)
-	at app//mavlc.parsing.Parser.parseSwitch(Parser.java:429)
-	at app//mavlc.parsing.Parser.parseStatement(Parser.java:273)
-	at app//mavlc.parsing.Parser.parseFunction(Parser.java:122)
-	at app//mavlc.parsing.Parser.parse(Parser.java:74)
-	at app//mavlc.Pipeline.lambda$parseProgramImpl$0(Pipeline.java:215)
-	at java.base@18.0.2/java.security.AccessController.doPrivileged(AccessController.java:399)
-	at app//mavlc.Pipeline.parseProgramImpl(Pipeline.java:213)
-	at app//mavlc.Pipeline.parseProgram(Pipeline.java:90)
-	at app//mavlc.testing.AstCompareTest.run(AstCompareTest.java:38)
-	at app//mavlc.testing.BaseCompareTest.test(BaseCompareTest.java:56)
-	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
-	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:288)
-	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:282)
-	at java.base@18.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base@18.0.2/java.lang.Thread.run(Thread.java:833)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -116,7 +79,7 @@ Syntax error in line 2, column 15:
 </thead>
 <tr>
 <td class="success">test[p1_public/task_1/assign_1]</td>
-<td class="success">0.249s</td>
+<td class="success">0.256s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -126,12 +89,12 @@ Syntax error in line 2, column 15:
 </tr>
 <tr>
 <td class="success">test[p1_public/task_1/var_1]</td>
-<td class="success">0.013s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test[p1_public/task_2/arith_1]</td>
-<td class="success">0.013s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -141,42 +104,42 @@ Syntax error in line 2, column 15:
 </tr>
 <tr>
 <td class="success">test[p1_public/task_2/not_1]</td>
-<td class="success">0.011s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test[p1_public/task_3/if_1]</td>
-<td class="success">0.010s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test[p1_public/task_3/if_2]</td>
-<td class="success">0.009s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test[p1_public/task_4/bool_1]</td>
-<td class="success">0.011s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test[p1_public/task_5/select_1]</td>
-<td class="success">0.010s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test[p1_public/task_5/select_2]</td>
 <td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">test[p1_public/task_3/if_1]</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test[p1_public/task_3/if_2]</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test[p1_public/task_4/bool_1]</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test[p1_public/task_5/select_1]</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test[p1_public/task_5/select_2]</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">test[p1_public/task_6/call_1]</td>
-<td class="success">0.010s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test[p1_public/task_6/call_2]</td>
-<td class="success">0.009s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -186,22 +149,22 @@ Syntax error in line 2, column 15:
 </tr>
 <tr>
 <td class="success">test[p1_public/task_7/rec_atom_1]</td>
-<td class="success">0.011s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test[p1_public/task_7/rec_dec_1]</td>
-<td class="success">0.009s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">test[p1_public/task_7/rec_sel_1]</td>
-<td class="failures">0.009s</td>
-<td class="failures">failed</td>
+<td class="success">test[p1_public/task_7/rec_sel_1]</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>=== Running test case p1_public/task_1/assign_1 ===
@@ -286,6 +249,9 @@ Syntax error in line 2, column 15:
 
 === Running test case p1_public/task_7/rec_sel_1 ===
 
+
+=== Test case p1_public/task_7/rec_sel_1 finished successfully ===
+
 </pre>
 </span>
 </div>
@@ -297,7 +263,7 @@ Syntax error in line 2, column 15:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 17.11.2024, 13:51:47</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 21.11.2024, 20:04:47</p>
 </div>
 </div>
 </body>
