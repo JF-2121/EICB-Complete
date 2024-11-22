@@ -88,3 +88,18 @@ A=== Test case p1_public/task_4/bool_1 finished successfully ===
 
 D=== Test case p1_public/task_7/rec_sel_1 finished successfully ===
 
+8=== Running test case p1_public/task_2/arith_err_1 ===
+
+
+F=== Test case p1_public/task_2/arith_err_1 finished successfully ===
+
+7=== Running test case p1_public/task_4/bool_err_1 ===
+
+
+E=== Test case p1_public/task_4/bool_err_1 finished successfully ===
+
+9=== Running test case p1_public/task_6/return_err_1 ===
+
+
+G=== Test case p1_public/task_6/return_err_1 finished successfully ===
+

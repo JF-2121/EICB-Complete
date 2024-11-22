@@ -33,13 +33,6 @@ import static mavlc.syntax.expression.Compare.Comparison.*;
  * Joshua Liam Friedel (279635)
  * Benedikt Schwarz (2373528)
  * Lasse Ramon Reith (2674146)
- *
-
- *
- * EiCB group number: ...
- * Names and matriculation numbers of all group members:
- * ...
- */
 
 /**
  * A recursive-descent parser for MAVL.
@@ -134,6 +127,13 @@ public final class Parser {
 		return new FormalParameter(location, name, typeSpecifier);
 	}
 
+	/**
+	 * Parses a record type declaration.
+	 *
+	 * @return A {@link RecordTypeDeclaration} node representing the parsed record type declaration.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private RecordTypeDeclaration parseRecordTypeDeclaration() {
 		SourceLocation loc = currentToken.sourceLocation;
 		accept(RECORD);
@@ -148,6 +148,13 @@ public final class Parser {
 		accept(RBRACE);
         return new RecordTypeDeclaration(loc, recordName, elementList);
 	}
+
+	/**
+	 * Parses a record element declaration.
+	 *
+	 * @return A {@link RecordElementDeclaration} node representing the parsed record element declaration.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private RecordElementDeclaration parseRecordElementDeclaration() {
 		SourceLocation loc = currentToken.sourceLocation;
@@ -277,6 +284,13 @@ public final class Parser {
 		}
 	}
 
+	/**
+	 * Parses a variable declaration.
+	 *
+	 * @return A {@link VariableDeclaration} node representing the parsed variable declaration.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private ValueDefinition parseValueDef() {
 		SourceLocation loc = currentToken.sourceLocation;
 		accept(VAL);
@@ -288,6 +302,13 @@ public final class Parser {
         return new ValueDefinition(loc, parsedType, varName, valueExpr);
 	}
 
+	/**
+	 * Parses a variable declaration.
+	 *
+	 * @return A {@link VariableDeclaration} node representing the parsed variable declaration.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private VariableDeclaration parseVarDecl() {
 		SourceLocation srcLoc = currentToken.sourceLocation;
 		accept(VAR);
@@ -297,6 +318,13 @@ public final class Parser {
         return new VariableDeclaration(srcLoc, parsedType, varIdentifier);
 	}
 
+	/**
+	 * Parses a return statement.
+	 *
+	 * @return A {@link ReturnStatement} node representing the parsed return statement.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private ReturnStatement parseReturn() {
 		SourceLocation loc = currentToken.sourceLocation;
 		accept(RETURN);
@@ -304,6 +332,13 @@ public final class Parser {
 		accept(SEMICOLON);
 		return new ReturnStatement(loc, returnExpr);
 	}
+
+	/**
+	 * Parses an assignment or function call statement.
+	 *
+	 * @return A {@link Statement} node representing the parsed assignment or function call statement.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private Statement parseAssignOrCall() {
 		SourceLocation location = currentToken.sourceLocation;
@@ -322,6 +357,15 @@ public final class Parser {
 
 		return s;
 	}
+
+	/**
+	 * Parses a variable assignment.
+	 *
+	 * @param name The name of the variable being assigned.
+	 * @param location The source location of the assignment.
+	 * @return A {@link VariableAssignment} node representing the parsed assignment.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private VariableAssignment parseAssign(String name, SourceLocation location) {
 		VariableAssignment assignment;
@@ -355,6 +399,15 @@ public final class Parser {
 		assignment = new VariableAssignment(location, id, assignedValue);
 		return assignment;
 	}
+
+	/**
+	 * Parses a function call expression.
+	 *
+	 * @param name The name of the function being called.
+	 * @param location The source location of the call.
+	 * @return A {@link CallExpression} node representing the parsed function call.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private CallExpression parseCall(String name, SourceLocation location) {
 		// TODO implement (task 1.6)
@@ -400,6 +453,13 @@ public final class Parser {
 		accept(RPAREN);
 		return new ForEachLoop(location, param, struct, parseStatement());
 	}
+
+	/**
+	 * Parses an if statement.
+	 *
+	 * @return An {@link IfStatement} node representing the parsed if statement.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private IfStatement parseIf() {
 		// TODO implement method (task 1.3)
@@ -474,6 +534,13 @@ public final class Parser {
 		return parseSelect();
 	}
 
+	/**
+	 * Parses a select expression (ternary conditional expression).
+	 *
+	 * @return An {@link Expression} node representing the parsed select expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private Expression parseSelect() {
 		SourceLocation location = currentToken.sourceLocation;
 
@@ -512,6 +579,13 @@ public final class Parser {
 		return x;
 	}
 
+	/**
+	 * Parses a NOT expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed NOT expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private Expression parseNot() {
 		SourceLocation loc = currentToken.sourceLocation;
 		if (currentToken.type == NOT) {
@@ -520,6 +594,13 @@ public final class Parser {
 		}
 		return parseCompare();
 	}
+
+	/**
+	 * Parses a comparison expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed comparison expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 
 	private Expression parseCompare() {
@@ -549,6 +630,12 @@ public final class Parser {
 		return x;
 	}
 
+	/**
+	 * Parses an addition or subtraction expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed addition or subtraction expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private Expression parseAddSub() {
 		SourceLocation location = currentToken.sourceLocation;
@@ -572,6 +659,13 @@ public final class Parser {
 		return x;
 	}
 
+	/**
+	 * Parses a multiplication or division expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed multiplication or division expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private Expression parseMulDiv() {
 		SourceLocation location = currentToken.sourceLocation;
 
@@ -594,6 +688,15 @@ public final class Parser {
 		return x;
 	}
 
+
+	/**
+	 * Parses a unary minus expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed unary minus expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
+
 	private Expression parseUnaryMinus() {
 		SourceLocation loc = currentToken.sourceLocation;
 		if (currentToken.type == SUB) {
@@ -602,6 +705,13 @@ public final class Parser {
 		}
 		return parseExponentiation();
 	}
+
+	/**
+	 * Parses an exponentiation expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed exponentiation expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private Expression parseExponentiation() {
 		SourceLocation loc = currentToken.sourceLocation;
@@ -634,6 +744,13 @@ public final class Parser {
 		}
 		return x;
 	}
+
+	/**
+	 * Parses a transpose expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed transpose expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private Expression parseTranspose() {
 		SourceLocation loc = currentToken.sourceLocation;
@@ -707,6 +824,13 @@ public final class Parser {
 		return x;
 	}
 
+	/**
+	 * Parses a record element select expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed record element select expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private Expression parseRecordElementSelect() {
 		SourceLocation location = currentToken.sourceLocation;
 
@@ -721,6 +845,15 @@ public final class Parser {
 
 		return x;
 	}
+
+	/**
+	 * Parses an atomic expression.
+	 *
+	 * @return An {@link Expression} node representing the parsed atomic expression.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
+
 
 	private Expression parseAtom() {
 		SourceLocation location = currentToken.sourceLocation;
@@ -767,6 +900,13 @@ public final class Parser {
 		throw new SyntaxError(currentToken, INTLIT, FLOATLIT, BOOLLIT, STRINGLIT, ID, LPAREN, LBRACKET, AT);
 	}
 
+	/**
+	 * Parses an initializer list.
+	 *
+	 * @return A list of {@link Expression} nodes representing the parsed initializer list.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
+
 	private List<Expression> parseInitializerList() {
 		List<Expression> elements = new ArrayList<>();
 
@@ -788,6 +928,13 @@ public final class Parser {
 	private float parseFloatLit() {
 		return Float.parseFloat(accept(FLOATLIT));
 	}
+
+	/**
+	 * Parses a boolean literal.
+	 *
+	 * @return The parsed boolean value.
+	 * @throws SyntaxError if an unexpected token is encountered.
+	 */
 
 	private boolean parseBoolLit() {
 		return Boolean.parseBoolean(accept(BOOLLIT));
