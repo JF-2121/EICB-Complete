@@ -1,0 +1,28 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableDeclaration line="2" column="4" name="i">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+        </VariableDeclaration>
+        <VariableAssignment line="3" column="4">
+          <identifier line="3" column="4" name="i">
+            <declaration class="VariableDeclaration" reference="../../../VariableDeclaration"/>
+          </identifier>
+          <value class="IntValue" line="3" column="8" value="0">
+            <type class="IntType"/>
+          </value>
+        </VariableAssignment>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

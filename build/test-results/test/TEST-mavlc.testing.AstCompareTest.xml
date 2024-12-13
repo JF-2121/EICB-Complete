@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mavlc.testing.AstCompareTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-12-13T19:19:00" hostname="DESKTOP-NC4RSIU" time="0.412">
+  <properties/>
+  <testcase name="test[p2_public/task_1/comp_1]" classname="mavlc.testing.AstCompareTest" time="0.262"/>
+  <testcase name="test[p2_public/task_1/id_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p2_public/task_2/rec_dec_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p2_public/task_2/rec_dec_2]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p2_public/task_3/const_expr_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p2_public/task_3/const_expr_2]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p2_public/task_4/assign_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p2_public/task_4/assign_2]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p2_public/task_4/assign_3]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p2_public/task_5/expr_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p2_public/task_5/matrix_rows_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p2_public/task_6/call_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p2_public/task_6/call_2]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <system-out><![CDATA[=== Running test case p2_public/task_1/comp_1 ===
+
+
+=== Test case p2_public/task_1/comp_1 finished successfully ===
+
+=== Running test case p2_public/task_1/id_1 ===
+
+
+=== Test case p2_public/task_1/id_1 finished successfully ===
+
+=== Running test case p2_public/task_2/rec_dec_1 ===
+
+
+=== Test case p2_public/task_2/rec_dec_1 finished successfully ===
+
+=== Running test case p2_public/task_2/rec_dec_2 ===
+
+
+=== Test case p2_public/task_2/rec_dec_2 finished successfully ===
+
+=== Running test case p2_public/task_3/const_expr_1 ===
+
+
+=== Test case p2_public/task_3/const_expr_1 finished successfully ===
+
+=== Running test case p2_public/task_3/const_expr_2 ===
+
+
+=== Test case p2_public/task_3/const_expr_2 finished successfully ===
+
+=== Running test case p2_public/task_4/assign_1 ===
+
+
+=== Test case p2_public/task_4/assign_1 finished successfully ===
+
+=== Running test case p2_public/task_4/assign_2 ===
+
+
+=== Test case p2_public/task_4/assign_2 finished successfully ===
+
+=== Running test case p2_public/task_4/assign_3 ===
+
+
+=== Test case p2_public/task_4/assign_3 finished successfully ===
+
+=== Running test case p2_public/task_5/expr_1 ===
+
+
+=== Test case p2_public/task_5/expr_1 finished successfully ===
+
+=== Running test case p2_public/task_5/matrix_rows_1 ===
+
+
+=== Test case p2_public/task_5/matrix_rows_1 finished successfully ===
+
+=== Running test case p2_public/task_6/call_1 ===
+
+
+=== Test case p2_public/task_6/call_1 finished successfully ===
+
+=== Running test case p2_public/task_6/call_2 ===
+
+
+=== Test case p2_public/task_6/call_2 finished successfully ===
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,53 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#FFC6C6", tooltip="main"]
+
+# SimpleNode IntType
+node2 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral i
+node3 [shape=box, label="i", fillcolor="#EAFDC5", tooltip="i"]
+
+# PortNode VarDecl
+node4:p0:s -> node2:n
+node4:p1:s -> node3:n
+node4 [label="{VarDecl|{<p0>Type|<p1>Name}}", tooltip="VarDecl"]
+
+# ReferenceLiteral i
+node5 -> node3 [style=dashed, constraint=false, color="#7BB800"]
+node5 [shape=box, label="i", fillcolor="#EAFDC5", tooltip="i"]
+
+# PortNode SimpleLhs
+node6:p0:s -> node5:n
+node6 [label="{SimpleLhs|{<p0>Name}}", tooltip="SimpleLhs"]
+
+# Literal 0
+node7 [shape=box, label="0", fillcolor="#cccccc", tooltip="0"]
+
+# SimpleNode IntLiteral
+node8:s -> node7:n
+node8 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Assignment
+node9:p0:s -> node6:n
+node9:p1:s -> node8:n
+node9 [label="{Assignment|{<p0>Target|<p1>Value}}", tooltip="Assignment"]
+
+# PortNode Function
+node10:p0:s -> node0:n
+node10:p1:s -> node1:n
+node10:p3_0:s -> node4:n
+node10:p3_1:s -> node9:n
+node10 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1|<p3_1>2}}}}", tooltip="Function"]
+
+# PortNode Module
+node11:p1_0:s -> node10:n
+node11 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

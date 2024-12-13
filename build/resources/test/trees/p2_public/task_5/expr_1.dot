@@ -1,0 +1,64 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#FFC6C6", tooltip="main"]
+
+# SimpleNode IntType
+node2 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral m
+node3 [shape=box, label="m", fillcolor="#EAFDC5", tooltip="m"]
+
+# Literal true
+node4 [shape=box, label="true", fillcolor="#cccccc", tooltip="true"]
+
+# SimpleNode BoolLiteral
+node5:s -> node4:n
+node5 [label="BoolLiteral", tooltip="BoolLiteral"]
+
+# Literal 2
+node6 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node7:s -> node6:n
+node7 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 1
+node8 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node9:s -> node8:n
+node9 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Select
+node10:p0:s -> node5:n
+node10:p1:s -> node7:n
+node10:p2:s -> node9:n
+node10 [label="{Select|{<p0>Condition|<p1>Then|<p2>Else}}", tooltip="Select"]
+
+# PortNode UnaryMinus
+node11:p0:s -> node10:n
+node11 [label="{UnaryMinus|{<p0>Operand}}", tooltip="UnaryMinus"]
+
+# PortNode ValDef
+node12:p0:s -> node2:n
+node12:p1:s -> node3:n
+node12:p2:s -> node11:n
+node12 [label="{ValDef|{<p0>Type|<p1>Name|<p2>Value}}", tooltip="ValDef"]
+
+# PortNode Function
+node13:p0:s -> node0:n
+node13:p1:s -> node1:n
+node13:p3_0:s -> node12:n
+node13 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node14:p1_0:s -> node13:n
+node14 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

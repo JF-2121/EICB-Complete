@@ -1,0 +1,8 @@
+
+Identifier 'x' has already been declared in the same scope:
+
+Original declaration in line 2, column 4:
+> val int x = 1;
+
+Duplicate declaration in line 3, column 4:
+> val int x = 1;

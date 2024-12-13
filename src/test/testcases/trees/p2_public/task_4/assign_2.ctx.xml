@@ -1,0 +1,39 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableDeclaration line="2" column="4" name="v">
+          <typeSpecifier class="VectorTypeSpecifier" line="2" column="8">
+            <type class="VectorType" dimension="4">
+              <elementType class="FloatType"/>
+            </type>
+            <elementTypeSpecifier class="FloatTypeSpecifier" line="2" column="15">
+              <type class="FloatType"/>
+            </elementTypeSpecifier>
+            <dimensionExpression class="IntValue" line="2" column="22" value="4">
+              <type class="IntType"/>
+            </dimensionExpression>
+          </typeSpecifier>
+          <type class="VectorType" reference="../typeSpecifier/type"/>
+        </VariableDeclaration>
+        <VariableAssignment line="3" column="4">
+          <identifier class="VectorLhsIdentifier" line="3" column="4" name="v">
+            <declaration class="VariableDeclaration" reference="../../../VariableDeclaration"/>
+            <indexExpression class="IntValue" line="3" column="6" value="2">
+              <type class="IntType"/>
+            </indexExpression>
+          </identifier>
+          <value class="FloatValue" line="3" column="11" value="5.0">
+            <type class="FloatType"/>
+          </value>
+        </VariableAssignment>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

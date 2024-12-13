@@ -1,0 +1,41 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="5" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="5" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableDeclaration line="6" column="4" name="r">
+          <typeSpecifier class="RecordTypeSpecifier" line="6" column="8" recordTypeName="rec">
+            <type class="RecordType" name="rec">
+              <typeDeclaration line="1" column="0" name="rec">
+                <elements>
+                  <RecordElementDeclaration line="2" column="4" name="x" isVariable="true">
+                    <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+                      <type class="IntType"/>
+                    </typeSpecifier>
+                    <type class="IntType"/>
+                  </RecordElementDeclaration>
+                </elements>
+              </typeDeclaration>
+            </type>
+          </typeSpecifier>
+          <type class="RecordType" reference="../typeSpecifier/type"/>
+        </VariableDeclaration>
+        <VariableAssignment line="7" column="4">
+          <identifier class="RecordLhsIdentifier" line="7" column="4" name="r" elementName="x">
+            <declaration class="VariableDeclaration" reference="../../../VariableDeclaration"/>
+          </identifier>
+          <value class="IntValue" line="7" column="10" value="1">
+            <type class="IntType"/>
+          </value>
+        </VariableAssignment>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records>
+    <RecordTypeDeclaration reference="../../functions/Function/body/VariableDeclaration/typeSpecifier/type/typeDeclaration"/>
+  </records>
+</Module>

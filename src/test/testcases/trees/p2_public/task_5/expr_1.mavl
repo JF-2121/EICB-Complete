@@ -1,0 +1,3 @@
+function void main(){
+	val int m = - (true ? 2 : 1);
+}

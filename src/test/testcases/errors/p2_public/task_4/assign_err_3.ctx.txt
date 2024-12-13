@@ -1,0 +1,9 @@
+
+Invalid assignment in line 7, column 4:
+> Cannot assign constant identifier 'r'.
+
+Faulty node:
+> r@x
+
+Identifier declaration in line 6, column 4:
+> val rec r = @rec[5];

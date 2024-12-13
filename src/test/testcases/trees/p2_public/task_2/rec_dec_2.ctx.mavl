@@ -1,0 +1,6 @@
+record rec{
+    var int x;
+    var int y;
+}
+
+function void main(){}

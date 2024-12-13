@@ -1,0 +1,8 @@
+record rec {
+	var int x;
+}
+
+function void main(){
+    val rec r = @rec[5];
+    r@x = 7;
+}

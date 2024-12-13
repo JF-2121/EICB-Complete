@@ -1,0 +1,9 @@
+
+Invalid function call in line 6, column 16:
+> Not enough arguments specified; expected 1, got 0
+
+Faulty node:
+> foo()
+
+Function signature:
+> function int foo(int x)

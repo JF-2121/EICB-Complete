@@ -1,0 +1,9 @@
+
+Invalid assignment in line 8, column 4:
+> Cannot assign constant identifier 'x'.
+
+Faulty node:
+> a@x
+
+Identifier declaration in line 2, column 4:
+> val int x;

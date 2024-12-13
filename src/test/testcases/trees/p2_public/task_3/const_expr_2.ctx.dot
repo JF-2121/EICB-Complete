@@ -1,0 +1,68 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#FFC6C6", tooltip="main"]
+
+# SimpleNode IntType
+node2 [label="IntType", tooltip="IntType"]
+
+# Literal 2
+node3 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node4:s -> node3:n
+node4 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 2
+node5 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node6:s -> node5:n
+node6 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Multiplication
+node7:p0:s -> node4:n
+node7:p1:s -> node6:n
+node7 [label="{Multiplication|{<p0>Left|<p1>Right}}", tooltip="Multiplication"]
+
+# Literal 2
+node8 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node9:s -> node8:n
+node9 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Division
+node10:p0:s -> node7:n
+node10:p1:s -> node9:n
+node10 [label="{Division|{<p0>Left|<p1>Right}}", tooltip="Division"]
+
+# PortNode VectorType
+node11:p0:s -> node2:n
+node11:p1:s -> node10:n
+node11 [label="{VectorType|{<p0>ElementType|<p1>Dimension}}", tooltip="VectorType"]
+
+# DeclarationLiteral x
+node12 [shape=box, label="x", fillcolor="#EAFDC5", tooltip="x"]
+
+# PortNode VarDecl
+node13:p0:s -> node11:n
+node13:p1:s -> node12:n
+node13 [label="{VarDecl|{<p0>Type|<p1>Name}}", tooltip="VarDecl"]
+
+# PortNode Function
+node14:p0:s -> node0:n
+node14:p1:s -> node1:n
+node14:p3_0:s -> node13:n
+node14 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node15:p1_0:s -> node14:n
+node15 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

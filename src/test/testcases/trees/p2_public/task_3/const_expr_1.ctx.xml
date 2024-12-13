@@ -1,0 +1,40 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableDeclaration line="2" column="4" name="x">
+          <typeSpecifier class="VectorTypeSpecifier" line="2" column="8">
+            <type class="VectorType" dimension="1">
+              <elementType class="IntType"/>
+            </type>
+            <elementTypeSpecifier class="IntTypeSpecifier" line="2" column="15">
+              <type class="IntType"/>
+            </elementTypeSpecifier>
+            <dimensionExpression class="Subtraction" line="2" column="20">
+              <type class="IntType"/>
+              <leftOperand class="Addition" line="2" column="20">
+                <type class="IntType"/>
+                <leftOperand class="IntValue" line="2" column="20" value="1">
+                  <type class="IntType"/>
+                </leftOperand>
+                <rightOperand class="IntValue" line="2" column="22" value="1">
+                  <type class="IntType"/>
+                </rightOperand>
+              </leftOperand>
+              <rightOperand class="IntValue" line="2" column="24" value="1">
+                <type class="IntType"/>
+              </rightOperand>
+            </dimensionExpression>
+          </typeSpecifier>
+          <type class="VectorType" reference="../typeSpecifier/type"/>
+        </VariableDeclaration>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

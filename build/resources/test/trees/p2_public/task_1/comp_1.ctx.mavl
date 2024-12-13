@@ -1,0 +1,8 @@
+function void main(){
+    val int x = 1;
+
+    {
+        val int x = 2;
+    }
+
+}

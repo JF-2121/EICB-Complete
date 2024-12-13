@@ -1,0 +1,105 @@
+3=== Running test case p2_public/task_1/comp_1 ===
+
+
+A=== Test case p2_public/task_1/comp_1 finished successfully ===
+
+1=== Running test case p2_public/task_1/id_1 ===
+
+
+?=== Test case p2_public/task_1/id_1 finished successfully ===
+
+6=== Running test case p2_public/task_2/rec_dec_1 ===
+
+
+D=== Test case p2_public/task_2/rec_dec_1 finished successfully ===
+
+6=== Running test case p2_public/task_2/rec_dec_2 ===
+
+
+D=== Test case p2_public/task_2/rec_dec_2 finished successfully ===
+
+9=== Running test case p2_public/task_3/const_expr_1 ===
+
+
+G=== Test case p2_public/task_3/const_expr_1 finished successfully ===
+
+9=== Running test case p2_public/task_3/const_expr_2 ===
+
+
+G=== Test case p2_public/task_3/const_expr_2 finished successfully ===
+
+5=== Running test case p2_public/task_4/assign_1 ===
+
+
+C=== Test case p2_public/task_4/assign_1 finished successfully ===
+
+	5=== Running test case p2_public/task_4/assign_2 ===
+	
+	
+	C=== Test case p2_public/task_4/assign_2 finished successfully ===
+	
+
+5=== Running test case p2_public/task_4/assign_3 ===
+
+
+
+
+
+C=== Test case p2_public/task_4/assign_3 finished successfully ===
+
+
+3=== Running test case p2_public/task_5/expr_1 ===
+
+
+A=== Test case p2_public/task_5/expr_1 finished successfully ===
+
+:=== Running test case p2_public/task_5/matrix_rows_1 ===
+
+
+H=== Test case p2_public/task_5/matrix_rows_1 finished successfully ===
+
+3=== Running test case p2_public/task_6/call_1 ===
+
+
+A=== Test case p2_public/task_6/call_1 finished successfully ===
+
+3=== Running test case p2_public/task_6/call_2 ===
+
+
+A=== Test case p2_public/task_6/call_2 finished successfully ===
+
+5=== Running test case p2_public/task_1/id_err_1 ===
+
+
+C=== Test case p2_public/task_1/id_err_1 finished successfully ===
+
+:=== Running test case p2_public/task_2/rec_dec_err_1 ===
+
+
+H=== Test case p2_public/task_2/rec_dec_err_1 finished successfully ===
+
+9=== Running test case p2_public/task_4/assign_err_1 ===
+
+
+G=== Test case p2_public/task_4/assign_err_1 finished successfully ===
+
+9=== Running test case p2_public/task_4/assign_err_2 ===
+
+
+G=== Test case p2_public/task_4/assign_err_2 finished successfully ===
+
+9=== Running test case p2_public/task_4/assign_err_3 ===
+
+
+G=== Test case p2_public/task_4/assign_err_3 finished successfully ===
+
+>=== Running test case p2_public/task_5/matrix_rows_err_1 ===
+
+
+L=== Test case p2_public/task_5/matrix_rows_err_1 finished successfully ===
+
+7=== Running test case p2_public/task_6/call_err_1 ===
+
+
+E=== Test case p2_public/task_6/call_err_1 finished successfully ===
+
