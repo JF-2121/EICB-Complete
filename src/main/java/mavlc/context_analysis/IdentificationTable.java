@@ -16,10 +16,10 @@ import mavlc.syntax.statement.Declaration;
 
 /* TODO enter group information
  *
- * EiCB group number: ...
- * Names and matriculation numbers of all group members:
- * ...
- */
+ * EiCB group number: 149
+ * Joshua Liam Friedel (279635)
+ * Benedikt Schwarz (2373528)
+ * Lasse Ramon Reith (2674146)
 
 /**
  * A table for identifiers used inside a function.
@@ -59,7 +59,6 @@ public class IdentificationTable {
 		}
 		return currentScope.getDeclaration(name);
 	}
-
 
 
 	/**

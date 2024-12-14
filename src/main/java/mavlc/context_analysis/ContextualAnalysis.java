@@ -30,10 +30,13 @@ import java.util.Set;
 
 /* TODO enter group information
  *
- * EiCB group number: ...
- * Names and matriculation numbers of all group members:
- * ...
+ * EiCB group number: 149
+ * Joshua Liam Friedel (279635)
+ * Benedikt Schwarz (2373528)
+ * Lasse Ramon Reith (2674146)
+
  */
+/**
 
 /** A combined identification and type checking visitor. */
 public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
@@ -192,6 +195,8 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitRecordElementDeclaration(RecordElementDeclaration recordElementDeclaration, Void __) {
+		// Visits a record element declaration to determine its type.
+		// Sets the type of the record element and returns it.
 		// TODO implement (task 2.2)
 		Type type = recordElementDeclaration.typeSpecifier.accept(this);
 		recordElementDeclaration.setType(type);
@@ -216,10 +221,12 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitVariableAssignment(VariableAssignment variableAssignment, Void __) {
+		// Handles the type checking of variable assignments.
+		// Ensures the left-hand side is a variable and matches the type of the right-hand side.
 		// TODO implement (task 2.4)
 		Type lhs = variableAssignment.identifier.accept(this);
 		Declaration varDecl = table.getDeclaration(variableAssignment.identifier.name);
-		if(!varDecl.isVariable())
+		if (!varDecl.isVariable())
 			throw new ConstantAssignmentError(variableAssignment.identifier, varDecl);
 		Type rhs = variableAssignment.value.accept(this);
 		checkType(variableAssignment, lhs, rhs);
@@ -228,27 +235,31 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitLeftHandIdentifier(LeftHandIdentifier leftHandIdentifier, Void __) {
+		// Resolves the declaration for a left-hand side identifier and retrieves its type.
+		// Ensures the identifier is associated with a valid declaration.
 		// TODO implement (task 2.4)
 		Declaration decl;
 		if (!leftHandIdentifier.isDeclarationSet()) {
 			decl = table.getDeclaration(leftHandIdentifier.name);
 			leftHandIdentifier.setDeclaration(decl);
-		}
-		else
+		} else {
 			decl = leftHandIdentifier.getDeclaration();
+		}
 		return decl.getType();
 	}
 
 	@Override
 	public Type visitMatrixLhsIdentifier(MatrixLhsIdentifier matrixLhsIdentifier, Void __) {
+		// Checks if the matrix left-hand side identifier is valid and performs type checks on indices.
+		// Ensures the base type is a matrix and returns the type of the matrix element.
 		// TODO implement (task 2.4)
 		Declaration decl;
 		if (!matrixLhsIdentifier.isDeclarationSet()) {
 			decl = table.getDeclaration(matrixLhsIdentifier.name);
 			matrixLhsIdentifier.setDeclaration(decl);
-		}
-		else
+		} else {
 			decl = matrixLhsIdentifier.getDeclaration();
+		}
 		if (!(decl.getType() instanceof MatrixType)) {
 			throw new InapplicableOperationError(matrixLhsIdentifier, decl.getType(), MatrixType.class);
 		}
@@ -257,33 +268,38 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 		return ((MatrixType) decl.getType()).elementType;
 	}
 
+
 	@Override
 	public Type visitVectorLhsIdentifier(VectorLhsIdentifier vectorLhsIdentifier, Void __) {
+		// Validates the vector left-hand side identifier and checks the index expression.
+		// Ensures the base type is a vector and returns the type of the vector element.
 		// TODO implement (task 2.4)
 		Declaration decl;
 		if (!vectorLhsIdentifier.isDeclarationSet()) {
 			decl = table.getDeclaration(vectorLhsIdentifier.name);
 			vectorLhsIdentifier.setDeclaration(decl);
-		}
-		else
+		} else {
 			decl = vectorLhsIdentifier.getDeclaration();
-		if (! (decl.getType() instanceof VectorType)) {
+		}
+		if (!(decl.getType() instanceof VectorType)) {
 			throw new InapplicableOperationError(vectorLhsIdentifier, decl.getType(), VectorType.class);
 		}
 		checkType(vectorLhsIdentifier, vectorLhsIdentifier.indexExpression.accept(this), IntType.instance);
-		return ((VectorType)decl.getType()).elementType;
+		return ((VectorType) decl.getType()).elementType;
 	}
 
 	@Override
 	public Type visitRecordLhsIdentifier(RecordLhsIdentifier recordLhsIdentifier, Void __) {
+		// Processes a record left-hand side identifier to ensure validity and retrieve the element type.
+		// Ensures the base type is a record and the element is a variable.
 		// TODO implement (task 2.4)
-		Declaration decl =  table.getDeclaration(recordLhsIdentifier.name);
+		Declaration decl = table.getDeclaration(recordLhsIdentifier.name);
 		if (!decl.isTypeSet())
 			decl.setType(decl.typeSpecifier.accept(this));
 		Type baseType = decl.getType();
 		if (!(baseType instanceof RecordType))
 			throw new InapplicableOperationError(recordLhsIdentifier, baseType, RecordType.class);
-		RecordType recordType = (RecordType)baseType;
+		RecordType recordType = (RecordType) baseType;
 		for (RecordElementDeclaration element : recordType.typeDeclaration.elements) {
 			if (element.name.equals(recordLhsIdentifier.elementName)) {
 				if (!element.isVariable()) throw new ConstantAssignmentError(recordLhsIdentifier, element);
@@ -380,6 +396,8 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitCallStatement(CallStatement callStatement, Void __) {
+		// Validates and processes a call statement.
+		// Ensures the called expression is valid and performs necessary checks.
 		// TODO implement (task 2.6)
 		callStatement.callExpression.accept(this);
 		return null;
@@ -392,9 +410,11 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitCompoundStatement(CompoundStatement compoundStatement, Void __) {
+		// Opens a new scope, processes all statements within the compound, and then closes the scope.
+		// Ensures variable scoping is handled properly.
 		// TODO implement (task 2.1)
 		table.openNewScope();
-		for (Statement statement: compoundStatement.statements) {
+		for (Statement statement : compoundStatement.statements) {
 			statement.accept(this);
 		}
 		table.closeCurrentScope();
@@ -620,10 +640,13 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitMatrixRows(MatrixRows rows, Void __) {
+		// Validates that the operand of a matrix row operation is a matrix.
+		// Sets and returns the type as integer, representing the number of rows.
 		// TODO implement (task 2.4)
-		Type opType = rows.operand.accept(this);
-		if(!(opType instanceof MatrixType))
-			throw new InapplicableOperationError(rows, opType, MatrixType.class);
+		Type operant = rows.operand.accept(this);
+		if (!(operant instanceof MatrixType)) {
+			throw new InapplicableOperationError(rows, operant, MatrixType.class);
+		}
 		rows.setType(IntType.instance);
 		return IntType.instance;
 	}
@@ -648,12 +671,15 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitUnaryMinus(UnaryMinus unaryMinus, Void __) {
+		// Processes a unary minus operation and ensures the operand is numeric.
+		// Sets and returns the operand's type as the result type.
 		// TODO implement (task 2.5)
-		Type opType = unaryMinus.operand.accept(this);
-		if(!opType.isNumericType())
-			throw new InapplicableOperationError(unaryMinus, opType, IntType.class, FloatType.class);
-		unaryMinus.setType(opType);
-		return opType;
+		Type operand = unaryMinus.operand.accept(this);
+		if (!(operand instanceof NumericType)) {
+			throw new InapplicableOperationError(unaryMinus, operand, NumericType.class);
+		}
+		unaryMinus.setType(operand);
+		return operand;
 	}
 
 	@Override
@@ -810,14 +836,16 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitStructureInit(StructureInit structureInit, Void __) {
-		// The type of the first element determines the structure
+		// Handles the initialization of vector or matrix structures.
+		// Determines the structure type based on the first element.
+		// TODO extend method (task 2.5)
 		Type firstElem = structureInit.elements.get(0).accept(this);
-		if(firstElem instanceof VectorType) {
-			// Matrix init
+		if (firstElem instanceof VectorType) {
+			// Matrix initialization
 			NumericType elemType = ((VectorType) firstElem).elementType;
 			int size = ((VectorType) firstElem).dimension;
 			int x = 0;
-			for(Expression element : structureInit.elements) {
+			for (Expression element : structureInit.elements) {
 				Type t = element.accept(this);
 				checkType(structureInit, firstElem, t);
 				++x;
@@ -826,14 +854,13 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 			structureInit.setType(resultType);
 			return resultType;
 		} else {
-			// Vector init
-			// TODO extend method (task 2.5)
-			if(!firstElem.isNumericType()) {
+			// Vector initialization
+			if (!firstElem.isNumericType()) {
 				throw new InapplicableOperationError(structureInit, firstElem, IntType.class, FloatType.class);
 			}
 			NumericType elemType = (NumericType) firstElem;
 			int size = 0;
-			for(Expression element : structureInit.elements) {
+			for (Expression element : structureInit.elements) {
 				Type t = element.accept(this);
 				checkType(structureInit, elemType, t);
 				++size;
@@ -842,7 +869,6 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 			structureInit.setType(resultType);
 			return resultType;
 		}
-
 	}
 
 	@Override
@@ -867,6 +893,8 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitBoolValue(BoolValue boolValue, Void __) {
+		// Returns the type for a boolean value.
+		// Always returns BoolType.instance.
 		// TODO implement (task 2.5)
 		return BoolType.instance;
 	}
@@ -891,6 +919,8 @@ public class ContextualAnalysis extends AstNodeBaseVisitor<Type, Void> {
 
 	@Override
 	public Type visitSelectExpression(SelectExpression exp, Void __) {
+		// Processes a conditional select expression (ternary operator).
+		// Ensures the condition is boolean and the true/false cases are of the same type.
 		// TODO implement (task 2.5)
 		Type conType = exp.condition.accept(this);
 		Type trueType = exp.trueCase.accept(this);
