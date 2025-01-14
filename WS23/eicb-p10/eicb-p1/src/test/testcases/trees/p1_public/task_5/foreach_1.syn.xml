@@ -1,0 +1,71 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="M">
+          <typeSpecifier class="MatrixTypeSpecifier" line="2" column="8">
+            <elementTypeSpecifier class="FloatTypeSpecifier" line="2" column="15">
+              <type class="FloatType"/>
+            </elementTypeSpecifier>
+            <rowsExpression class="IntValue" line="2" column="22" value="2"/>
+            <colsExpression class="IntValue" line="2" column="25" value="2"/>
+          </typeSpecifier>
+          <value class="StructureInit" line="2" column="32">
+            <elements>
+              <StructureInit line="2" column="33">
+                <elements>
+                  <FloatValue line="2" column="34" value="2.5"/>
+                  <FloatValue line="2" column="39" value="3.1"/>
+                </elements>
+              </StructureInit>
+              <StructureInit line="2" column="45">
+                <elements>
+                  <FloatValue line="2" column="46" value="2.0"/>
+                  <UnaryMinus line="2" column="51">
+                    <operand class="FloatValue" line="2" column="52" value="1.2"/>
+                  </UnaryMinus>
+                </elements>
+              </StructureInit>
+            </elements>
+          </value>
+        </ValueDefinition>
+        <VariableDeclaration line="3" column="4" name="sum">
+          <typeSpecifier class="FloatTypeSpecifier" line="3" column="8">
+            <type class="FloatType"/>
+          </typeSpecifier>
+        </VariableDeclaration>
+        <VariableAssignment line="4" column="4">
+          <identifier line="4" column="4" name="sum"/>
+          <value class="FloatValue" line="4" column="10" value="0.0"/>
+        </VariableAssignment>
+        <ForEachLoop line="5" column="4">
+          <iteratorDeclaration line="5" column="12" name="i" isVariable="false">
+            <typeSpecifier class="FloatTypeSpecifier" line="5" column="16">
+              <type class="FloatType"/>
+            </typeSpecifier>
+          </iteratorDeclaration>
+          <structExpression class="MatrixMultiplication" line="5" column="26">
+            <leftOperand class="IdentifierReference" line="5" column="26" name="M"/>
+            <rightOperand class="IdentifierReference" line="5" column="30" name="M"/>
+          </structExpression>
+          <body class="CompoundStatement" line="5" column="33">
+            <statements>
+              <VariableAssignment line="6" column="8">
+                <identifier line="6" column="8" name="sum"/>
+                <value class="Addition" line="6" column="14">
+                  <leftOperand class="IdentifierReference" line="6" column="14" name="sum"/>
+                  <rightOperand class="IdentifierReference" line="6" column="20" name="i"/>
+                </value>
+              </VariableAssignment>
+            </statements>
+          </body>
+        </ForEachLoop>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

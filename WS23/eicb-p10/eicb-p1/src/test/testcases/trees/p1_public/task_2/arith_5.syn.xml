@@ -1,0 +1,69 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="ex">
+          <typeSpecifier class="BoolTypeSpecifier" line="2" column="8">
+            <type class="BoolType"/>
+          </typeSpecifier>
+          <value class="Compare" line="2" column="18">
+            <leftOperand class="Multiplication" line="2" column="18">
+              <leftOperand class="Multiplication" line="2" column="18">
+                <leftOperand class="IntValue" line="2" column="18" value="5">
+                  <type class="IntType"/>
+                </leftOperand>
+                <rightOperand class="IntValue" line="2" column="22" value="5">
+                  <type class="IntType"/>
+                </rightOperand>
+              </leftOperand>
+              <rightOperand class="IntValue" line="2" column="26" value="5">
+                <type class="IntType"/>
+              </rightOperand>
+            </leftOperand>
+            <rightOperand class="Subtraction" line="2" column="30">
+              <leftOperand class="Division" line="2" column="30">
+                <leftOperand class="Division" line="2" column="30">
+                  <leftOperand class="Division" line="2" column="30">
+                    <leftOperand class="UnaryMinus" line="2" column="30">
+                      <operand class="IntValue" line="2" column="31" value="7">
+                        <type class="IntType"/>
+                      </operand>
+                    </leftOperand>
+                    <rightOperand class="UnaryMinus" line="2" column="35">
+                      <operand class="IntValue" line="2" column="36" value="7">
+                        <type class="IntType"/>
+                      </operand>
+                    </rightOperand>
+                  </leftOperand>
+                  <rightOperand class="UnaryMinus" line="2" column="40">
+                    <operand class="IntValue" line="2" column="41" value="7">
+                      <type class="IntType"/>
+                    </operand>
+                  </rightOperand>
+                </leftOperand>
+                <rightOperand class="UnaryMinus" line="2" column="45">
+                  <operand class="IntValue" line="2" column="46" value="7">
+                    <type class="IntType"/>
+                  </operand>
+                </rightOperand>
+              </leftOperand>
+              <rightOperand class="UnaryMinus" line="2" column="50">
+                <operand class="mavlc.syntax.expression.MatrixTranspose" line="2" column="51">
+                  <operand class="IntValue" line="2" column="52" value="7">
+                    <type class="IntType"/>
+                  </operand>
+                </operand>
+              </rightOperand>
+            </rightOperand>
+            <comparator>GREATER</comparator>
+          </value>
+        </ValueDefinition>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

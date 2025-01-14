@@ -1,0 +1,42 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ForLoop line="2" column="4" initVarName="i" incrVarName="i">
+          <initExpression class="IntValue" line="2" column="10" value="0">
+            <type class="IntType"/>
+          </initExpression>
+          <loopCondition class="Compare" line="2" column="13">
+            <leftOperand class="IdentifierReference" line="2" column="13" name="i"/>
+            <rightOperand class="IntValue" line="2" column="15" value="5">
+              <type class="IntType"/>
+            </rightOperand>
+            <comparator>LESS</comparator>
+          </loopCondition>
+          <incrExpression class="Addition" line="2" column="20">
+            <leftOperand class="IdentifierReference" line="2" column="20" name="i"/>
+            <rightOperand class="IntValue" line="2" column="22" value="1">
+              <type class="IntType"/>
+            </rightOperand>
+          </incrExpression>
+          <body class="CompoundStatement" line="2" column="24">
+            <statements>
+              <CallStatement line="3" column="8">
+                <callExpression line="3" column="8" functionName="printInt">
+                  <actualParameters>
+                    <IdentifierReference line="3" column="17" name="i"/>
+                  </actualParameters>
+                </callExpression>
+              </CallStatement>
+            </statements>
+          </body>
+        </ForLoop>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

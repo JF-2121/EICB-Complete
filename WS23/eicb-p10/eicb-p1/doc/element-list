@@ -1,0 +1,15 @@
+mavlc
+mavlc.errors
+mavlc.parsing
+mavlc.services.serialization
+mavlc.services.visualization
+mavlc.services.visualization.dot
+mavlc.syntax
+mavlc.syntax.expression
+mavlc.syntax.function
+mavlc.syntax.module
+mavlc.syntax.record
+mavlc.syntax.statement
+mavlc.syntax.type
+mavlc.type
+mavlc.util

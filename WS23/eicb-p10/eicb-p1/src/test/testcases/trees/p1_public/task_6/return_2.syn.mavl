@@ -1,0 +1,7 @@
+function void main(){
+	fac(12);
+}
+
+function int fac(int n){
+	return n < 2 ? 1 : n * fac(n-1);
+}

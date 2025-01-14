@@ -1,0 +1,7 @@
+function void main() {
+	var int sum;
+	sum = 0;
+	for(val int i : [1, 2, 3]) {
+		sum = sum + i;
+	}
+}

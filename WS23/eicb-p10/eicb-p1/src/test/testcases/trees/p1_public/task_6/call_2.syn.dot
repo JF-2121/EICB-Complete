@@ -1,0 +1,100 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# ReferenceLiteral random_function
+node2 [shape=box, label="random_function", fillcolor="#cccccc", tooltip="random_function"]
+
+# ReferenceLiteral a
+node3 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node4:s -> node3:n
+node4 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral b
+node5 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# SimpleNode Identifier
+node6:s -> node5:n
+node6 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Division
+node7:p0:s -> node4:n
+node7:p1:s -> node6:n
+node7 [label="{Division|{<p0>Left|<p1>Right}}", tooltip="Division"]
+
+# ReferenceLiteral c
+node8 [shape=box, label="c", fillcolor="#cccccc", tooltip="c"]
+
+# SimpleNode Identifier
+node9:s -> node8:n
+node9 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral d
+node10 [shape=box, label="d", fillcolor="#cccccc", tooltip="d"]
+
+# SimpleNode Identifier
+node11:s -> node10:n
+node11 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Multiplication
+node12:p0:s -> node9:n
+node12:p1:s -> node11:n
+node12 [label="{Multiplication|{<p0>Left|<p1>Right}}", tooltip="Multiplication"]
+
+# PortNode Subtraction
+node13:p0:s -> node7:n
+node13:p1:s -> node12:n
+node13 [label="{Subtraction|{<p0>Left|<p1>Right}}", tooltip="Subtraction"]
+
+# ReferenceLiteral b
+node14 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# SimpleNode Identifier
+node15:s -> node14:n
+node15 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral c
+node16 [shape=box, label="c", fillcolor="#cccccc", tooltip="c"]
+
+# SimpleNode Identifier
+node17:s -> node16:n
+node17 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral d
+node18 [shape=box, label="d", fillcolor="#cccccc", tooltip="d"]
+
+# SimpleNode Identifier
+node19:s -> node18:n
+node19 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Call
+node20:p0:s -> node2:n
+node20:p1_0:s -> node13:n
+node20:p1_1:s -> node15:n
+node20:p1_2:s -> node17:n
+node20:p1_3:s -> node19:n
+node20 [label="{Call|{<p0>Function|{Arguments|{<p1_0>1|<p1_1>2|<p1_2>3|<p1_3>4}}}}", tooltip="Call"]
+
+# PortNode CallStatement
+node21:p0:s -> node20:n
+node21 [label="{CallStatement|{<p0>CallExpr}}", tooltip="CallStatement"]
+
+# PortNode Function
+node22:p0:s -> node0:n
+node22:p1:s -> node1:n
+node22:p3_0:s -> node21:n
+node22 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node23:p1_0:s -> node22:n
+node23 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

@@ -1,0 +1,4 @@
+
+Syntax error in line 7, column 4:
+> Got token <case 'case'>, but expected one of the following:
+> for, foreach, id, if, lbrace, return, switch, val, var

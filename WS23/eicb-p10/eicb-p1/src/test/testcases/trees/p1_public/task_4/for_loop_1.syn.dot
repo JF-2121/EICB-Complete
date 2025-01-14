@@ -1,0 +1,108 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# ReferenceLiteral i
+node2 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# Literal 0
+node3 [shape=box, label="0", fillcolor="#cccccc", tooltip="0"]
+
+# SimpleNode IntLiteral
+node4:s -> node3:n
+node4 [label="IntLiteral", tooltip="IntLiteral"]
+
+# ReferenceLiteral i
+node5 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# SimpleNode Identifier
+node6:s -> node5:n
+node6 [label="Identifier", tooltip="Identifier"]
+
+# Literal <
+node7 [shape=box, label="<", fillcolor="#cccccc", tooltip="<"]
+
+# Literal 5
+node8 [shape=box, label="5", fillcolor="#cccccc", tooltip="5"]
+
+# SimpleNode IntLiteral
+node9:s -> node8:n
+node9 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Compare
+node10:p0:s -> node6:n
+node10:p1:s -> node7:n
+node10:p2:s -> node9:n
+node10 [label="{Compare|{<p0>Left|<p1>Op|<p2>Right}}", tooltip="Compare"]
+
+# ReferenceLiteral printInt
+node11 [shape=box, label="printInt", fillcolor="#cccccc", tooltip="printInt"]
+
+# ReferenceLiteral i
+node12 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# SimpleNode Identifier
+node13:s -> node12:n
+node13 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Call
+node14:p0:s -> node11:n
+node14:p1_0:s -> node13:n
+node14 [label="{Call|{<p0>Function|{Arguments|{<p1_0>1}}}}", tooltip="Call"]
+
+# PortNode CallStatement
+node15:p0:s -> node14:n
+node15 [label="{CallStatement|{<p0>CallExpr}}", tooltip="CallStatement"]
+
+# PortNode Compound
+node16:p0:s -> node15:n
+node16 [label="{Compound|{<p0>1}}", tooltip="Compound"]
+
+# ReferenceLiteral i
+node17 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# ReferenceLiteral i
+node18 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# SimpleNode Identifier
+node19:s -> node18:n
+node19 [label="Identifier", tooltip="Identifier"]
+
+# Literal 1
+node20 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node21:s -> node20:n
+node21 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Addition
+node22:p0:s -> node19:n
+node22:p1:s -> node21:n
+node22 [label="{Addition|{<p0>Left|<p1>Right}}", tooltip="Addition"]
+
+# PortNode ForLoop
+node23:p0_0:s -> node2:n
+node23:p0_1:s -> node4:n
+node23:p1:s -> node10:n
+node23:p2:s -> node16:n
+node23:p3_0:s -> node17:n
+node23:p3_1:s -> node22:n
+node23 [label="{ForLoop|{{Init|{<p0_0>Target|<p0_1>Value}}|<p1>Condition|<p2>Body|{Inc|{<p3_0>Target|<p3_1>Value}}}}", tooltip="ForLoop"]
+
+# PortNode Function
+node24:p0:s -> node0:n
+node24:p1:s -> node1:n
+node24:p3_0:s -> node23:n
+node24 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node25:p1_0:s -> node24:n
+node25 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

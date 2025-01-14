@@ -1,0 +1,55 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <CallStatement line="2" column="4">
+          <callExpression line="2" column="4" functionName="fac">
+            <actualParameters>
+              <IntValue line="2" column="8" value="12"/>
+            </actualParameters>
+          </callExpression>
+        </CallStatement>
+      </body>
+    </Function>
+    <Function line="5" column="0" name="fac">
+      <returnTypeSpecifier class="IntTypeSpecifier" line="5" column="9">
+        <type class="IntType"/>
+      </returnTypeSpecifier>
+      <parameters>
+        <FormalParameter line="5" column="17" name="n">
+          <typeSpecifier class="IntTypeSpecifier" line="5" column="17">
+            <type class="IntType"/>
+          </typeSpecifier>
+        </FormalParameter>
+      </parameters>
+      <body>
+        <ReturnStatement line="6" column="4">
+          <returnValue class="SelectExpression" line="6" column="11">
+            <condition class="Compare" line="6" column="11">
+              <leftOperand class="IdentifierReference" line="6" column="11" name="n"/>
+              <rightOperand class="IntValue" line="6" column="15" value="2"/>
+              <comparator>LESS</comparator>
+            </condition>
+            <trueCase class="IntValue" line="6" column="19" value="1"/>
+            <falseCase class="Multiplication" line="6" column="23">
+              <leftOperand class="IdentifierReference" line="6" column="23" name="n"/>
+              <rightOperand class="CallExpression" line="6" column="27" functionName="fac">
+                <actualParameters>
+                  <Subtraction line="6" column="31">
+                    <leftOperand class="IdentifierReference" line="6" column="31" name="n"/>
+                    <rightOperand class="IntValue" line="6" column="33" value="1"/>
+                  </Subtraction>
+                </actualParameters>
+              </rightOperand>
+            </falseCase>
+          </returnValue>
+        </ReturnStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

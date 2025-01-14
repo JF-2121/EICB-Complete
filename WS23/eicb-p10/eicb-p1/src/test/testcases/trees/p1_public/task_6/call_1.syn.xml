@@ -1,0 +1,66 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="i">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <value class="CallExpression" line="2" column="16" functionName="faculty">
+            <actualParameters>
+              <IdentifierReference line="2" column="24" name="n"/>
+            </actualParameters>
+          </value>
+        </ValueDefinition>
+      </body>
+    </Function>
+    <Function line="5" column="0" name="faculty">
+      <returnTypeSpecifier class="IntTypeSpecifier" line="5" column="9">
+        <type class="IntType"/>
+      </returnTypeSpecifier>
+      <parameters>
+        <FormalParameter line="5" column="21" name="n">
+          <typeSpecifier class="IntTypeSpecifier" line="5" column="21">
+            <type class="IntType"/>
+          </typeSpecifier>
+        </FormalParameter>
+      </parameters>
+      <body>
+        <IfStatement line="6" column="4">
+          <condition class="Compare" line="6" column="8">
+            <leftOperand class="IdentifierReference" line="6" column="8" name="n"/>
+            <rightOperand class="IntValue" line="6" column="13" value="1">
+              <type class="IntType"/>
+            </rightOperand>
+            <comparator>EQUAL</comparator>
+          </condition>
+          <thenStatement class="ReturnStatement" line="6" column="16">
+            <returnValue class="IntValue" line="6" column="23" value="1">
+              <type class="IntType"/>
+            </returnValue>
+          </thenStatement>
+          <elseStatement class="ReturnStatement" line="6" column="31">
+            <returnValue class="Multiplication" line="6" column="38">
+              <leftOperand class="IdentifierReference" line="6" column="38" name="n"/>
+              <rightOperand class="CallExpression" line="6" column="42" functionName="faculty">
+                <actualParameters>
+                  <Subtraction line="6" column="50">
+                    <leftOperand class="IdentifierReference" line="6" column="50" name="n"/>
+                    <rightOperand class="IntValue" line="6" column="52" value="1">
+                      <type class="IntType"/>
+                    </rightOperand>
+                  </Subtraction>
+                </actualParameters>
+              </rightOperand>
+            </returnValue>
+          </elseStatement>
+        </IfStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

@@ -1,0 +1,26 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="2" name="a">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="6">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <value class="IntValue" line="2" column="14" value="10">
+            <type class="IntType"/>
+          </value>
+        </ValueDefinition>
+        <SwitchStatement line="4" column="2">
+          <condition class="IdentifierReference" line="4" column="9" name="a"/>
+          <cases/>
+          <defaults/>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

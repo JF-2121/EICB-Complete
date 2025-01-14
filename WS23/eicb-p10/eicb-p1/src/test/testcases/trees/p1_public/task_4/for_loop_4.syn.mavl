@@ -1,0 +1,7 @@
+function void main(){
+	for(i=0; i<5; i=i+1-k)
+		if(i==2)
+			printInt(42);
+		else
+			printInt(i);
+}

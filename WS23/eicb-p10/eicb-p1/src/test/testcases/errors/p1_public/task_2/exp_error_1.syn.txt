@@ -1,0 +1,4 @@
+
+Syntax error in line 2, column 19:
+> Got token <semicolon ';'>, but expected one of the following:
+> at, boollit, floatlit, id, intlit, lbracket, lparen, stringlit

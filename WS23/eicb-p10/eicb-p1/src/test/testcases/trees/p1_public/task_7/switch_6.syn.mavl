@@ -1,0 +1,11 @@
+function void main(){
+  val int a = 10;
+  var int b;
+
+  switch(a+b^2){
+    case -1*2*3*4:
+      b = 7;
+    default: {}
+    case 0: {}
+  }
+}

@@ -1,0 +1,32 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <CallStatement line="2" column="4">
+          <callExpression line="2" column="4" functionName="random_function">
+            <actualParameters>
+              <Subtraction line="2" column="20">
+                <leftOperand class="Division" line="2" column="20">
+                  <leftOperand class="IdentifierReference" line="2" column="20" name="a"/>
+                  <rightOperand class="IdentifierReference" line="2" column="22" name="b"/>
+                </leftOperand>
+                <rightOperand class="Multiplication" line="2" column="24">
+                  <leftOperand class="IdentifierReference" line="2" column="24" name="c"/>
+                  <rightOperand class="IdentifierReference" line="2" column="26" name="d"/>
+                </rightOperand>
+              </Subtraction>
+              <IdentifierReference line="2" column="29" name="b"/>
+              <IdentifierReference line="2" column="32" name="c"/>
+              <IdentifierReference line="2" column="35" name="d"/>
+            </actualParameters>
+          </callExpression>
+        </CallStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

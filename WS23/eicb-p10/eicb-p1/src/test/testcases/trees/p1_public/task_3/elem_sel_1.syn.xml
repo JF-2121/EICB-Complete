@@ -1,0 +1,34 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="x">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <value class="ElementSelect" line="2" column="16">
+            <structExpression class="ElementSelect" line="2" column="16">
+              <structExpression class="ElementSelect" line="2" column="16">
+                <structExpression class="IdentifierReference" line="2" column="16" name="v"/>
+                <indexExpression class="IntValue" line="2" column="18" value="2">
+                  <type class="IntType"/>
+                </indexExpression>
+              </structExpression>
+              <indexExpression class="IntValue" line="2" column="21" value="3">
+                <type class="IntType"/>
+              </indexExpression>
+            </structExpression>
+            <indexExpression class="IntValue" line="2" column="24" value="4">
+              <type class="IntType"/>
+            </indexExpression>
+          </value>
+        </ValueDefinition>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

@@ -1,0 +1,204 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# SimpleNode FloatType
+node2 [label="FloatType", tooltip="FloatType"]
+
+# Literal 2
+node3 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node4:s -> node3:n
+node4 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 2
+node5 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node6:s -> node5:n
+node6 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode MatrixType
+node7:p0:s -> node2:n
+node7:p1:s -> node4:n
+node7:p2:s -> node6:n
+node7 [label="{MatrixType|{<p0>ElementType|<p1>Rows|<p2>Cols}}", tooltip="MatrixType"]
+
+# DeclarationLiteral M
+node8 [shape=box, label="M", fillcolor="#cccccc", tooltip="M"]
+
+# Literal 2.5
+node9 [shape=box, label="2.5", fillcolor="#cccccc", tooltip="2.5"]
+
+# SimpleNode FloatLiteral
+node10:s -> node9:n
+node10 [label="FloatLiteral", tooltip="FloatLiteral"]
+
+# Literal 3.1
+node11 [shape=box, label="3.1", fillcolor="#cccccc", tooltip="3.1"]
+
+# SimpleNode FloatLiteral
+node12:s -> node11:n
+node12 [label="FloatLiteral", tooltip="FloatLiteral"]
+
+# PortNode StructureInit
+node13:p0:s -> node10:n
+node13:p1:s -> node12:n
+node13 [label="{StructureInit|{<p0>1|<p1>2}}", tooltip="StructureInit"]
+
+# Literal 2.0
+node14 [shape=box, label="2.0", fillcolor="#cccccc", tooltip="2.0"]
+
+# SimpleNode FloatLiteral
+node15:s -> node14:n
+node15 [label="FloatLiteral", tooltip="FloatLiteral"]
+
+# Literal 1.2
+node16 [shape=box, label="1.2", fillcolor="#cccccc", tooltip="1.2"]
+
+# SimpleNode FloatLiteral
+node17:s -> node16:n
+node17 [label="FloatLiteral", tooltip="FloatLiteral"]
+
+# PortNode UnaryMinus
+node18:p0:s -> node17:n
+node18 [label="{UnaryMinus|{<p0>Operand}}", tooltip="UnaryMinus"]
+
+# PortNode StructureInit
+node19:p0:s -> node15:n
+node19:p1:s -> node18:n
+node19 [label="{StructureInit|{<p0>1|<p1>2}}", tooltip="StructureInit"]
+
+# PortNode StructureInit
+node20:p0:s -> node13:n
+node20:p1:s -> node19:n
+node20 [label="{StructureInit|{<p0>1|<p1>2}}", tooltip="StructureInit"]
+
+# PortNode ValDef
+node21:p0:s -> node7:n
+node21:p1:s -> node8:n
+node21:p2:s -> node20:n
+node21 [label="{ValDef|{<p0>Type|<p1>Name|<p2>Value}}", tooltip="ValDef"]
+
+# SimpleNode FloatType
+node22 [label="FloatType", tooltip="FloatType"]
+
+# DeclarationLiteral sum
+node23 [shape=box, label="sum", fillcolor="#cccccc", tooltip="sum"]
+
+# PortNode VarDecl
+node24:p0:s -> node22:n
+node24:p1:s -> node23:n
+node24 [label="{VarDecl|{<p0>Type|<p1>Name}}", tooltip="VarDecl"]
+
+# ReferenceLiteral sum
+node25 [shape=box, label="sum", fillcolor="#cccccc", tooltip="sum"]
+
+# PortNode SimpleLhs
+node26:p0:s -> node25:n
+node26 [label="{SimpleLhs|{<p0>Name}}", tooltip="SimpleLhs"]
+
+# Literal 0.0
+node27 [shape=box, label="0.0", fillcolor="#cccccc", tooltip="0.0"]
+
+# SimpleNode FloatLiteral
+node28:s -> node27:n
+node28 [label="FloatLiteral", tooltip="FloatLiteral"]
+
+# PortNode Assignment
+node29:p0:s -> node26:n
+node29:p1:s -> node28:n
+node29 [label="{Assignment|{<p0>Target|<p1>Value}}", tooltip="Assignment"]
+
+# SimpleNode FloatType
+node30 [label="FloatType", tooltip="FloatType"]
+
+# DeclarationLiteral i
+node31 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# PortNode ValIterator
+node32:p0:s -> node30:n
+node32:p1:s -> node31:n
+node32 [label="{ValIterator|{<p0>Type|<p1>Name}}", tooltip="ValIterator"]
+
+# ReferenceLiteral M
+node33 [shape=box, label="M", fillcolor="#cccccc", tooltip="M"]
+
+# SimpleNode Identifier
+node34:s -> node33:n
+node34 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral M
+node35 [shape=box, label="M", fillcolor="#cccccc", tooltip="M"]
+
+# SimpleNode Identifier
+node36:s -> node35:n
+node36 [label="Identifier", tooltip="Identifier"]
+
+# PortNode MatrixMult
+node37:p0:s -> node34:n
+node37:p1:s -> node36:n
+node37 [label="{MatrixMult|{<p0>Left|<p1>Right}}", tooltip="MatrixMult"]
+
+# ReferenceLiteral sum
+node38 [shape=box, label="sum", fillcolor="#cccccc", tooltip="sum"]
+
+# PortNode SimpleLhs
+node39:p0:s -> node38:n
+node39 [label="{SimpleLhs|{<p0>Name}}", tooltip="SimpleLhs"]
+
+# ReferenceLiteral sum
+node40 [shape=box, label="sum", fillcolor="#cccccc", tooltip="sum"]
+
+# SimpleNode Identifier
+node41:s -> node40:n
+node41 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral i
+node42 [shape=box, label="i", fillcolor="#cccccc", tooltip="i"]
+
+# SimpleNode Identifier
+node43:s -> node42:n
+node43 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Addition
+node44:p0:s -> node41:n
+node44:p1:s -> node43:n
+node44 [label="{Addition|{<p0>Left|<p1>Right}}", tooltip="Addition"]
+
+# PortNode Assignment
+node45:p0:s -> node39:n
+node45:p1:s -> node44:n
+node45 [label="{Assignment|{<p0>Target|<p1>Value}}", tooltip="Assignment"]
+
+# PortNode Compound
+node46:p0:s -> node45:n
+node46 [label="{Compound|{<p0>1}}", tooltip="Compound"]
+
+# PortNode ForEachLoop
+node47:p0:s -> node32:n
+node47:p1:s -> node37:n
+node47:p2:s -> node46:n
+node47 [label="{ForEachLoop|{<p0>Iterator|<p1>Struct|<p2>Body}}", tooltip="ForEachLoop"]
+
+# PortNode Function
+node48:p0:s -> node0:n
+node48:p1:s -> node1:n
+node48:p3_0:s -> node21:n
+node48:p3_1:s -> node24:n
+node48:p3_2:s -> node29:n
+node48:p3_3:s -> node47:n
+node48 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1|<p3_1>2|<p3_2>3|<p3_3>4}}}}", tooltip="Function"]
+
+# PortNode Module
+node49:p1_0:s -> node48:n
+node49 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

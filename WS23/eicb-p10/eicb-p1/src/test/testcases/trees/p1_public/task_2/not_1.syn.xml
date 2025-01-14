@@ -1,0 +1,31 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="foo">
+          <typeSpecifier class="BoolTypeSpecifier" line="2" column="8">
+            <type class="BoolType"/>
+          </typeSpecifier>
+          <value class="Not" line="2" column="19">
+            <operand class="Compare" line="2" column="21">
+              <leftOperand class="Multiplication" line="2" column="21">
+                <leftOperand class="IntValue" line="2" column="21" value="3"/>
+                <rightOperand class="IntValue" line="2" column="25" value="4"/>
+              </leftOperand>
+              <rightOperand class="Subtraction" line="2" column="29">
+                <leftOperand class="IntValue" line="2" column="29" value="15"/>
+                <rightOperand class="IntValue" line="2" column="34" value="2"/>
+              </rightOperand>
+              <comparator>LESS</comparator>
+            </operand>
+          </value>
+        </ValueDefinition>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

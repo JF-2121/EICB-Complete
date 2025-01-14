@@ -1,0 +1,4 @@
+function void main(){
+	random_function(a/b-c*d, b, c, d);
+}
+

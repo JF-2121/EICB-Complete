@@ -1,0 +1,19 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableAssignment line="2" column="4">
+          <identifier line="2" column="4" name="foo"/>
+          <value class="IntValue" line="2" column="10" value="21">
+            <type class="IntType"/>
+          </value>
+        </VariableAssignment>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

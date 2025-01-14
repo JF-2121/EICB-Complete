@@ -1,0 +1,188 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# ReferenceLiteral a
+node2 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node3:s -> node2:n
+node3 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral b
+node4 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# SimpleNode Identifier
+node5:s -> node4:n
+node5 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Subtraction
+node6:p0:s -> node3:n
+node6:p1:s -> node5:n
+node6 [label="{Subtraction|{<p0>Left|<p1>Right}}", tooltip="Subtraction"]
+
+# Literal 1
+node7 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node8:s -> node7:n
+node8 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode UnaryMinus
+node9:p0:s -> node8:n
+node9 [label="{UnaryMinus|{<p0>Operand}}", tooltip="UnaryMinus"]
+
+# ReferenceLiteral a
+node10 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node11:s -> node10:n
+node11 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Addition
+node12:p0:s -> node9:n
+node12:p1:s -> node11:n
+node12 [label="{Addition|{<p0>Left|<p1>Right}}", tooltip="Addition"]
+
+# ReferenceLiteral a
+node13 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node14:s -> node13:n
+node14 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral b
+node15 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# SimpleNode Identifier
+node16:s -> node15:n
+node16 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Addition
+node17:p0:s -> node14:n
+node17:p1:s -> node16:n
+node17 [label="{Addition|{<p0>Left|<p1>Right}}", tooltip="Addition"]
+
+# PortNode Switch
+node18:p0:s -> node17:n
+node18 [label="{Switch|{<p0>Value|{Cases|{}}}}", tooltip="Switch"]
+
+# PortNode Case
+node19:p0:s -> node12:n
+node19:p1:s -> node18:n
+node19 [label="{Case|{<p0>Condition|<p1>Body}}", tooltip="Case"]
+
+# Literal 5
+node20 [shape=box, label="5", fillcolor="#cccccc", tooltip="5"]
+
+# SimpleNode IntLiteral
+node21:s -> node20:n
+node21 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 7
+node22 [shape=box, label="7", fillcolor="#cccccc", tooltip="7"]
+
+# SimpleNode IntLiteral
+node23:s -> node22:n
+node23 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Multiplication
+node24:p0:s -> node21:n
+node24:p1:s -> node23:n
+node24 [label="{Multiplication|{<p0>Left|<p1>Right}}", tooltip="Multiplication"]
+
+# ReferenceLiteral b
+node25 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# SimpleNode Identifier
+node26:s -> node25:n
+node26 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Addition
+node27:p0:s -> node24:n
+node27:p1:s -> node26:n
+node27 [label="{Addition|{<p0>Left|<p1>Right}}", tooltip="Addition"]
+
+# ReferenceLiteral b
+node28 [shape=box, label="b", fillcolor="#cccccc", tooltip="b"]
+
+# PortNode SimpleLhs
+node29:p0:s -> node28:n
+node29 [label="{SimpleLhs|{<p0>Name}}", tooltip="SimpleLhs"]
+
+# Literal 6
+node30 [shape=box, label="6", fillcolor="#cccccc", tooltip="6"]
+
+# SimpleNode IntLiteral
+node31:s -> node30:n
+node31 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Assignment
+node32:p0:s -> node29:n
+node32:p1:s -> node31:n
+node32 [label="{Assignment|{<p0>Target|<p1>Value}}", tooltip="Assignment"]
+
+# ReferenceLiteral a
+node33 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node34:s -> node33:n
+node34 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral a
+node35 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# SimpleNode Identifier
+node36:s -> node35:n
+node36 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Multiplication
+node37:p0:s -> node34:n
+node37:p1:s -> node36:n
+node37 [label="{Multiplication|{<p0>Left|<p1>Right}}", tooltip="Multiplication"]
+
+# PortNode Switch
+node38:p0:s -> node37:n
+node38 [label="{Switch|{<p0>Value|{Cases|{}}}}", tooltip="Switch"]
+
+# PortNode Compound
+node39:p0:s -> node32:n
+node39:p1:s -> node38:n
+node39 [label="{Compound|{<p0>1|<p1>2}}", tooltip="Compound"]
+
+# PortNode Case
+node40:p0:s -> node27:n
+node40:p1:s -> node39:n
+node40 [label="{Case|{<p0>Condition|<p1>Body}}", tooltip="Case"]
+
+# PortNode Compound
+node41 [label="{Compound|{}}", tooltip="Compound"]
+
+# PortNode Default
+node42:p0:s -> node41:n
+node42 [label="{Default|{<p0>Body}}", tooltip="Default"]
+
+# PortNode Switch
+node43:p0:s -> node6:n
+node43:p1_0:s -> node19:n
+node43:p1_1:s -> node40:n
+node43:p1_2:s -> node42:n
+node43 [label="{Switch|{<p0>Value|{Cases|{<p1_0>1|<p1_1>2|<p1_2>3}}}}", tooltip="Switch"]
+
+# PortNode Function
+node44:p0:s -> node0:n
+node44:p1:s -> node1:n
+node44:p3_0:s -> node43:n
+node44 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node45:p1_0:s -> node44:n
+node45 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

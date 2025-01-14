@@ -1,0 +1,144 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#cccccc", tooltip="main"]
+
+# ReferenceLiteral fac
+node2 [shape=box, label="fac", fillcolor="#cccccc", tooltip="fac"]
+
+# Literal 12
+node3 [shape=box, label="12", fillcolor="#cccccc", tooltip="12"]
+
+# SimpleNode IntLiteral
+node4:s -> node3:n
+node4 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Call
+node5:p0:s -> node2:n
+node5:p1_0:s -> node4:n
+node5 [label="{Call|{<p0>Function|{Arguments|{<p1_0>1}}}}", tooltip="Call"]
+
+# PortNode CallStatement
+node6:p0:s -> node5:n
+node6 [label="{CallStatement|{<p0>CallExpr}}", tooltip="CallStatement"]
+
+# PortNode Function
+node7:p0:s -> node0:n
+node7:p1:s -> node1:n
+node7:p3_0:s -> node6:n
+node7 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# SimpleNode IntType
+node8 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral fac
+node9 [shape=box, label="fac", fillcolor="#cccccc", tooltip="fac"]
+
+# SimpleNode IntType
+node10 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral n
+node11 [shape=box, label="n", fillcolor="#cccccc", tooltip="n"]
+
+# PortNode Param
+node12:p0:s -> node10:n
+node12:p1:s -> node11:n
+node12 [label="{Param|{<p0>Type|<p1>Name}}", tooltip="Param"]
+
+# ReferenceLiteral n
+node13 [shape=box, label="n", fillcolor="#cccccc", tooltip="n"]
+
+# SimpleNode Identifier
+node14:s -> node13:n
+node14 [label="Identifier", tooltip="Identifier"]
+
+# Literal <
+node15 [shape=box, label="<", fillcolor="#cccccc", tooltip="<"]
+
+# Literal 2
+node16 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node17:s -> node16:n
+node17 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Compare
+node18:p0:s -> node14:n
+node18:p1:s -> node15:n
+node18:p2:s -> node17:n
+node18 [label="{Compare|{<p0>Left|<p1>Op|<p2>Right}}", tooltip="Compare"]
+
+# Literal 1
+node19 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node20:s -> node19:n
+node20 [label="IntLiteral", tooltip="IntLiteral"]
+
+# ReferenceLiteral n
+node21 [shape=box, label="n", fillcolor="#cccccc", tooltip="n"]
+
+# SimpleNode Identifier
+node22:s -> node21:n
+node22 [label="Identifier", tooltip="Identifier"]
+
+# ReferenceLiteral fac
+node23 [shape=box, label="fac", fillcolor="#cccccc", tooltip="fac"]
+
+# ReferenceLiteral n
+node24 [shape=box, label="n", fillcolor="#cccccc", tooltip="n"]
+
+# SimpleNode Identifier
+node25:s -> node24:n
+node25 [label="Identifier", tooltip="Identifier"]
+
+# Literal 1
+node26 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node27:s -> node26:n
+node27 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode Subtraction
+node28:p0:s -> node25:n
+node28:p1:s -> node27:n
+node28 [label="{Subtraction|{<p0>Left|<p1>Right}}", tooltip="Subtraction"]
+
+# PortNode Call
+node29:p0:s -> node23:n
+node29:p1_0:s -> node28:n
+node29 [label="{Call|{<p0>Function|{Arguments|{<p1_0>1}}}}", tooltip="Call"]
+
+# PortNode Multiplication
+node30:p0:s -> node22:n
+node30:p1:s -> node29:n
+node30 [label="{Multiplication|{<p0>Left|<p1>Right}}", tooltip="Multiplication"]
+
+# PortNode Select
+node31:p0:s -> node18:n
+node31:p1:s -> node20:n
+node31:p2:s -> node30:n
+node31 [label="{Select|{<p0>Condition|<p1>Then|<p2>Else}}", tooltip="Select"]
+
+# PortNode Return
+node32:p0:s -> node31:n
+node32 [label="{Return|{<p0>Value}}", tooltip="Return"]
+
+# PortNode Function
+node33:p0:s -> node8:n
+node33:p1:s -> node9:n
+node33:p2_0:s -> node12:n
+node33:p3_0:s -> node32:n
+node33 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{<p2_0>1}}|{Statements|{<p3_0>1}}}}", tooltip="Function"]
+
+# PortNode Module
+node34:p1_0:s -> node7:n
+node34:p1_1:s -> node33:n
+node34 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1|<p1_1>2}}}}", tooltip="Module"]
+
+}

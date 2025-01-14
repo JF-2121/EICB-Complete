@@ -1,0 +1,7 @@
+function void main(){
+	val int i = faculty(n);
+}
+
+function int faculty(int n) {
+    if (n == 1) return 1; else return n * faculty(n-1);
+}

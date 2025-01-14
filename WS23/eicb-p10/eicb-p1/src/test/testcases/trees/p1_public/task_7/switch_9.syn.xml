@@ -1,0 +1,77 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <SwitchStatement line="3" column="2">
+          <condition class="Subtraction" line="3" column="9">
+            <leftOperand class="IdentifierReference" line="3" column="9" name="a"/>
+            <rightOperand class="IdentifierReference" line="3" column="11" name="b"/>
+          </condition>
+          <cases>
+            <Case line="4" column="4">
+              <body class="SwitchStatement" line="5" column="6">
+                <condition class="Addition" line="5" column="14">
+                  <leftOperand class="IdentifierReference" line="5" column="14" name="a"/>
+                  <rightOperand class="IdentifierReference" line="5" column="16" name="b"/>
+                </condition>
+                <cases/>
+                <defaults/>
+              </body>
+              <conditionExpression class="Addition" line="4" column="9">
+                <leftOperand class="UnaryMinus" line="4" column="9">
+                  <operand class="IntValue" line="4" column="10" value="1">
+                    <type class="IntType"/>
+                  </operand>
+                </leftOperand>
+                <rightOperand class="IdentifierReference" line="4" column="12" name="a"/>
+              </conditionExpression>
+            </Case>
+            <Case line="8" column="4">
+              <body class="CompoundStatement" line="8" column="16">
+                <statements>
+                  <VariableAssignment line="9" column="6">
+                    <identifier line="9" column="6" name="b"/>
+                    <value class="IntValue" line="9" column="10" value="6">
+                      <type class="IntType"/>
+                    </value>
+                  </VariableAssignment>
+                  <SwitchStatement line="10" column="6">
+                    <condition class="Multiplication" line="10" column="14">
+                      <leftOperand class="IdentifierReference" line="10" column="14" name="a"/>
+                      <rightOperand class="IdentifierReference" line="10" column="16" name="a"/>
+                    </condition>
+                    <cases/>
+                    <defaults/>
+                  </SwitchStatement>
+                </statements>
+              </body>
+              <conditionExpression class="Addition" line="8" column="9">
+                <leftOperand class="Multiplication" line="8" column="9">
+                  <leftOperand class="IntValue" line="8" column="9" value="5">
+                    <type class="IntType"/>
+                  </leftOperand>
+                  <rightOperand class="IntValue" line="8" column="11" value="7">
+                    <type class="IntType"/>
+                  </rightOperand>
+                </leftOperand>
+                <rightOperand class="IdentifierReference" line="8" column="13" name="b"/>
+              </conditionExpression>
+            </Case>
+          </cases>
+          <defaults>
+            <Default line="7" column="4">
+              <body class="CompoundStatement" line="7" column="13">
+                <statements/>
+              </body>
+            </Default>
+          </defaults>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

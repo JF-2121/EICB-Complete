@@ -1,0 +1,79 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="M">
+          <typeSpecifier class="MatrixTypeSpecifier" line="2" column="8">
+            <elementTypeSpecifier class="IntTypeSpecifier" line="2" column="15">
+              <type class="IntType"/>
+            </elementTypeSpecifier>
+            <rowsExpression class="IntValue" line="2" column="20" value="3">
+              <type class="IntType"/>
+            </rowsExpression>
+            <colsExpression class="IntValue" line="2" column="23" value="2">
+              <type class="IntType"/>
+            </colsExpression>
+          </typeSpecifier>
+          <value class="StructureInit" line="2" column="30">
+            <elements>
+              <StructureInit line="2" column="31">
+                <elements>
+                  <IntValue line="2" column="32" value="1">
+                    <type class="IntType"/>
+                  </IntValue>
+                  <UnaryMinus line="2" column="35">
+                    <operand class="IntValue" line="2" column="36" value="1">
+                      <type class="IntType"/>
+                    </operand>
+                  </UnaryMinus>
+                </elements>
+              </StructureInit>
+              <StructureInit line="2" column="40">
+                <elements>
+                  <UnaryMinus line="2" column="41">
+                    <operand class="IntValue" line="2" column="42" value="2">
+                      <type class="IntType"/>
+                    </operand>
+                  </UnaryMinus>
+                  <IntValue line="2" column="45" value="2">
+                    <type class="IntType"/>
+                  </IntValue>
+                </elements>
+              </StructureInit>
+              <StructureInit line="2" column="49">
+                <elements>
+                  <IntValue line="2" column="50" value="3">
+                    <type class="IntType"/>
+                  </IntValue>
+                  <UnaryMinus line="2" column="53">
+                    <operand class="IntValue" line="2" column="54" value="3">
+                      <type class="IntType"/>
+                    </operand>
+                  </UnaryMinus>
+                </elements>
+              </StructureInit>
+            </elements>
+          </value>
+        </ValueDefinition>
+        <ValueDefinition line="3" column="4" name="exp">
+          <typeSpecifier class="IntTypeSpecifier" line="3" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <value class="Exponentiation" line="3" column="18">
+            <leftOperand class="IntValue" line="3" column="18" value="2">
+              <type class="IntType"/>
+            </leftOperand>
+            <rightOperand class="MatrixRows" line="3" column="22">
+              <operand class="IdentifierReference" line="3" column="22" name="M"/>
+            </rightOperand>
+          </value>
+        </ValueDefinition>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

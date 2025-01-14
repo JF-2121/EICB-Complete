@@ -1,0 +1,15 @@
+function void main(){
+
+  switch(a-b){
+    case -1+a:
+      switch (a+b) {
+	  }
+    default: { }
+    case 5*7+b: {
+	  b = 6;
+	  switch (a*a) {
+	  }
+	}
+  }
+  
+}

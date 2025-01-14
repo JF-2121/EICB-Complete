@@ -1,0 +1,4 @@
+function void main() {
+	val matrix<int>[3][2] M = [[1, -1], [-2, 2], [3, -3]];
+	val int exp = 2 ^ M.rows;
+}
