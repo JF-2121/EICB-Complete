@@ -1,0 +1,18 @@
+function void main() {
+    switch(4-1) {
+        case 0: {
+            printInt(0);
+        }
+        case 1: {
+            printInt(1);
+        }
+        default: {
+            printString("default");
+        }
+    }
+    printLine();
+
+    val int x = 1;
+    printInt(x);
+    printLine();
+}

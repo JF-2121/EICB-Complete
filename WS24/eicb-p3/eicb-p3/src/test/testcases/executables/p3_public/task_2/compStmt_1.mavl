@@ -1,0 +1,21 @@
+function void main(){
+    {
+        {
+            printString("Start!");
+            printLine();
+        }
+    }
+    val int a = 42;
+    {
+        {
+        }
+        {
+            printString("a:");
+            {
+                printString(" ");
+            }
+        }
+    }
+    printInt(a);
+    printLine();
+}

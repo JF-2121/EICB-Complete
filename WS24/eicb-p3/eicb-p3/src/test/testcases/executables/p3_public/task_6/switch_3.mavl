@@ -1,0 +1,11 @@
+function void main() {
+    switch(1) {
+        case 0: {
+            printInt(0);
+        }
+        case 1: {
+            printInt(1);
+        }
+    }
+    printLine();
+}

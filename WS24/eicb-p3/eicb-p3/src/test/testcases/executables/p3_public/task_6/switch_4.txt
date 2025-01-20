@@ -1,0 +1,3 @@
+default
+
+The program has finished successfully.
