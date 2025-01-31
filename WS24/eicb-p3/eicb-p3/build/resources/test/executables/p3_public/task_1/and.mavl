@@ -1,0 +1,9 @@
+function void main() {
+    printBool(1<2 & 2<3);
+    printLine();
+    printBool(1>2 & 2<3);
+    printLine();
+    printBool(1<2 & 2>3);
+    printLine();
+    printLine();
+}

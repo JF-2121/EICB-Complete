@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mavlc.testing.OutputCompareTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2025-01-30T18:41:47" hostname="DESKTOP-NC4RSIU" time="0.511">
+  <properties/>
+  <testcase name="test[p3_public/task_1/and]" classname="mavlc.testing.OutputCompareTest" time="0.207"/>
+  <testcase name="test[p3_public/task_1/callExpr]" classname="mavlc.testing.OutputCompareTest" time="0.017"/>
+  <testcase name="test[p3_public/task_2/compStmt_1]" classname="mavlc.testing.OutputCompareTest" time="0.017"/>
+  <testcase name="test[p3_public/task_3/lhs_1]" classname="mavlc.testing.OutputCompareTest" time="0.016"/>
+  <testcase name="test[p3_public/task_3/matrix_lhs_1]" classname="mavlc.testing.OutputCompareTest" time="0.021"/>
+  <testcase name="test[p3_public/task_3/record_lhs_1]" classname="mavlc.testing.OutputCompareTest" time="0.018"/>
+  <testcase name="test[p3_public/task_3/vector_lhs_err_1]" classname="mavlc.testing.OutputCompareTest" time="0.021"/>
+  <testcase name="test[p3_public/task_3/vector_lhs_err_2]" classname="mavlc.testing.OutputCompareTest" time="0.015"/>
+  <testcase name="test[p3_public/task_4/ternary_1]" classname="mavlc.testing.OutputCompareTest" time="0.014"/>
+  <testcase name="test[p3_public/task_5/for_loop_1]" classname="mavlc.testing.OutputCompareTest" time="0.014"/>
+  <testcase name="test[p3_public/task_5/for_loop_2]" classname="mavlc.testing.OutputCompareTest" time="0.015"/>
+  <testcase name="test[p3_public/task_5/for_loop_3]" classname="mavlc.testing.OutputCompareTest" time="0.02"/>
+  <testcase name="test[p3_public/task_5/for_loop_4]" classname="mavlc.testing.OutputCompareTest" time="0.016"/>
+  <testcase name="test[p3_public/task_6/switch_1]" classname="mavlc.testing.OutputCompareTest" time="0.012"/>
+  <testcase name="test[p3_public/task_6/switch_2]" classname="mavlc.testing.OutputCompareTest" time="0.012"/>
+  <testcase name="test[p3_public/task_6/switch_3]" classname="mavlc.testing.OutputCompareTest" time="0.012"/>
+  <testcase name="test[p3_public/task_6/switch_4]" classname="mavlc.testing.OutputCompareTest" time="0.015"/>
+  <testcase name="test[p3_public/task_6/switch_5]" classname="mavlc.testing.OutputCompareTest" time="0.015"/>
+  <testcase name="test[p3_public/task_7/subvector_1]" classname="mavlc.testing.OutputCompareTest" time="0.015"/>
+  <testcase name="test[p3_public/task_7/subvector_err_1]" classname="mavlc.testing.OutputCompareTest" time="0.014"/>
+  <system-out><![CDATA[=== Running test case p3_public/task_1/and ===
+
+true
+false
+false
+
+
+The program has finished successfully.
+Output:
+true
+false
+false
+
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_1/and finished successfully ===
+
+=== Running test case p3_public/task_1/callExpr ===
+
+12
+24
+
+The program has finished successfully.
+Output:
+12
+24
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_1/callExpr finished successfully ===
+
+=== Running test case p3_public/task_2/compStmt_1 ===
+
+Start!
+a: 42
+
+The program has finished successfully.
+Output:
+Start!
+a: 42
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_2/compStmt_1 finished successfully ===
+
+=== Running test case p3_public/task_3/lhs_1 ===
+
+1.0
+
+The program has finished successfully.
+Output:
+1.0
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_3/lhs_1 finished successfully ===
+
+=== Running test case p3_public/task_3/matrix_lhs_1 ===
+
+1
+
+The program has finished successfully.
+Output:
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_3/matrix_lhs_1 finished successfully ===
+
+=== Running test case p3_public/task_3/record_lhs_1 ===
+
+1
+
+The program has finished successfully.
+Output:
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_3/record_lhs_1 finished successfully ===
+
+=== Running test case p3_public/task_3/vector_lhs_err_1 ===
+
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+Output:
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+
+
+=== Test case p3_public/task_3/vector_lhs_err_1 finished successfully ===
+
+=== Running test case p3_public/task_3/vector_lhs_err_2 ===
+
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+Output:
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+
+
+=== Test case p3_public/task_3/vector_lhs_err_2 finished successfully ===
+
+=== Running test case p3_public/task_4/ternary_1 ===
+
+1
+
+The program has finished successfully.
+Output:
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_4/ternary_1 finished successfully ===
+
+=== Running test case p3_public/task_5/for_loop_1 ===
+
+
+The program has finished successfully.
+Output:
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_5/for_loop_1 finished successfully ===
+
+=== Running test case p3_public/task_5/for_loop_2 ===
+
+1
+0
+
+The program has finished successfully.
+Output:
+1
+0
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_5/for_loop_2 finished successfully ===
+
+=== Running test case p3_public/task_5/for_loop_3 ===
+
+3
+2
+
+The program has finished successfully.
+Output:
+3
+2
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_5/for_loop_3 finished successfully ===
+
+=== Running test case p3_public/task_5/for_loop_4 ===
+
+10
+10
+81
+
+The program has finished successfully.
+Output:
+10
+10
+81
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_5/for_loop_4 finished successfully ===
+
+=== Running test case p3_public/task_6/switch_1 ===
+
+hello world!
+
+The program has finished successfully.
+Output:
+hello world!
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_6/switch_1 finished successfully ===
+
+=== Running test case p3_public/task_6/switch_2 ===
+
+hello world!
+
+The program has finished successfully.
+Output:
+hello world!
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_6/switch_2 finished successfully ===
+
+=== Running test case p3_public/task_6/switch_3 ===
+
+1
+
+The program has finished successfully.
+Output:
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_6/switch_3 finished successfully ===
+
+=== Running test case p3_public/task_6/switch_4 ===
+
+default
+
+The program has finished successfully.
+Output:
+default
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_6/switch_4 finished successfully ===
+
+=== Running test case p3_public/task_6/switch_5 ===
+
+default
+1
+
+The program has finished successfully.
+Output:
+default
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_6/switch_5 finished successfully ===
+
+=== Running test case p3_public/task_7/subvector_1 ===
+
+0
+1
+
+The program has finished successfully.
+Output:
+0
+1
+
+The program has finished successfully.
+
+
+=== Test case p3_public/task_7/subvector_1 finished successfully ===
+
+=== Running test case p3_public/task_7/subvector_err_1 ===
+
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+Output:
+
+The program has finished with an error: runtimeError
+Error message: Index out of bounds
+
+
+=== Test case p3_public/task_7/subvector_err_1 finished successfully ===
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+function void main(){
+    val vector<int>[3] a = [0, 1, 2];
+    val vector<int>[2] b = a{0:0:1};
+
+    foreach(val int i : b){
+        printInt(i);
+        printLine();
+    }
+}

@@ -1,0 +1,4 @@
+function void main(){
+    printInt(1<2 ? 1 : 2);
+    printLine();
+}

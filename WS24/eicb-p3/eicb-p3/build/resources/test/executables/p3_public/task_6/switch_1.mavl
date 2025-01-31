@@ -1,0 +1,6 @@
+function void main(){
+  switch(0){
+  }
+  printString("hello world!");
+  printLine();
+}

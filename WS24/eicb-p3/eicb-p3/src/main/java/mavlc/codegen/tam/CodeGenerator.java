@@ -121,105 +121,83 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		visit(variableAssignment.identifier);
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitLeftHandIdentifier(LeftHandIdentifier leftHandIdentifier, Void __) {
 		// TODO implement (task 3.3)
-		Declaration decl = leftHandIdentifier.getDeclaration();
-		assembler.storeLocalValue(decl.getType().wordSize, decl.getLocalBaseOffset());
+		assembler.loadAddress(Register.LB, leftHandIdentifier.getDeclaration().getLocalBaseOffset());
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitMatrixLhsIdentifier(MatrixLhsIdentifier matrixLhsIdentifier, Void __) {
 		// TODO implement (task 3.3)
-		Declaration decl = matrixLhsIdentifier.getDeclaration();
-		Type declType = decl.getType();
-		if (!(declType instanceof MatrixType matType)) {
-			throw new InternalCompilerError("Type is not supported");
-		}
-		assembler.loadAddress(Register.LB, decl.getLocalBaseOffset());
+		int localOffset = matrixLhsIdentifier.getDeclaration().getLocalBaseOffset();
+		MatrixType matrixType = (MatrixType) matrixLhsIdentifier.getDeclaration().getType();
+		int NumOfRows = matrixType.rows;
+		int NumOfCols = matrixType.cols;
 		visit(matrixLhsIdentifier.colIndexExpression);
-		assembler.emitBoundsCheck(0, matType.cols);
-		assembler.emitIntegerAddition();
+		assembler.emitBoundsCheck(0, NumOfCols);
 		visit(matrixLhsIdentifier.rowIndexExpression);
-		assembler.emitBoundsCheck(0, matType.rows);
-		assembler.loadIntegerValue(matType.cols);
+		assembler.emitBoundsCheck(0, NumOfRows);
+		assembler.loadIntegerValue(NumOfCols);
 		assembler.emitIntegerMultiplication();
 		assembler.emitIntegerAddition();
-		assembler.storeToStackAddress(matType.elementType.wordSize);
-
+		assembler.loadAddress(Register.LB, localOffset);
+		assembler.emitIntegerAddition();
 		return null;
-
 	}
-	
+
 	@Override
 	public Instruction visitVectorLhsIdentifier(VectorLhsIdentifier vectorLhsIdentifier, Void __) {
 		// TODO implement (task 3.3)
-		Declaration decl = vectorLhsIdentifier.getDeclaration();
-		VectorType type = (VectorType) decl.getType();
-		if (!(decl.getType() instanceof VectorType))
-			throw new InternalCompilerError("VectorLhsIdentifier must have a VectorType");
-		assembler.loadAddress(Register.LB, decl.getLocalBaseOffset());
+		int localOffset = vectorLhsIdentifier.getDeclaration().getLocalBaseOffset();
+		VectorType vectorType  = (VectorType) vectorLhsIdentifier.getDeclaration().getType();
+		int vectorDim = vectorType.dimension;
 		visit(vectorLhsIdentifier.indexExpression);
-		assembler.emitBoundsCheck(0, type.dimension);
+		assembler.emitBoundsCheck(0, vectorDim);
+		assembler.loadAddress(Register.LB, localOffset);
 		assembler.emitIntegerAddition();
-		assembler.storeToStackAddress(type.elementType.wordSize);
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitRecordLhsIdentifier(RecordLhsIdentifier recordLhsIdentifier, Void __) {
 		// TODO implement (task 3.3)
-		Declaration decl = recordLhsIdentifier.getDeclaration();
-		Type declType = decl.getType();
-		if (!(declType instanceof RecordType recordType)) {
-			throw new InternalCompilerError("Type is not supported");
-		}
-		String elementName = recordLhsIdentifier.elementName;
-		RecordElementDeclaration element = recordType.typeDeclaration.getElement(elementName);
-		int elementIndex = recordType.typeDeclaration.elements.indexOf(element);
-		int offset = 0;
+		int localOffset = recordLhsIdentifier.getDeclaration().getLocalBaseOffset();
+		RecordType recordType = (RecordType) recordLhsIdentifier.getDeclaration().getType();
+		int elementOffset = recordType.typeDeclaration.getElementOffset(recordLhsIdentifier.elementName);
+		assembler.loadAddress(Register.LB, localOffset);
+		assembler.loadIntegerValue(elementOffset);
+		assembler.emitIntegerAddition();
 
-		for (int i = 0; i < elementIndex; i++) {
-			Declaration iter = recordType.typeDeclaration.elements.get(i);
-			offset += iter.getType().wordSize;
-		}
-
-		assembler.storeLocalValue(element.getType().wordSize, decl.getLocalBaseOffset() + offset);
 		return null;
-
 	}
-	
+
 	@Override
 	public Instruction visitForLoop(ForLoop forLoop, Void __) {
-		// TODO implement (task 3.5)
-		int localSize = assembler.getNextOffset();
-
-		Declaration initDecl = forLoop.getInitVarDeclaration();
-		Declaration incrDecl = forLoop.getIncrVarDeclaration();
+		//TODO implement (task 3.5)
+		int initOffset = forLoop.getInitVarDeclaration().getLocalBaseOffset();
+		int incrOffset = forLoop.getIncrVarDeclaration().getLocalBaseOffset();
 
 		visit(forLoop.initExpression);
-		assembler.storeLocalValue(initDecl.getType().wordSize, initDecl.getLocalBaseOffset());
-
-		int loopCondition = assembler.getNextInstructionAddress();
-		visit(forLoop.loopCondition);
-		Instruction jumpToLoopEnd = assembler.emitConditionalJump(false, -1);
-
-		int nextOffset = assembler.getNextOffset();
+		assembler.storeLocalValue(forLoop.initExpression.getType().wordSize, initOffset);
+		Instruction jumpToCheck = assembler.emitJump(-1);
+		int loopStart = assembler.getNextInstructionAddress();
+		int savedOffset = assembler.getNextOffset();
 		visit(forLoop.body);
-		assembler.resetNextOffset(nextOffset);
+		assembler.resetNextOffset(savedOffset);
 
+		// The i+=1 type of Expression yk
 		visit(forLoop.incrExpression);
-		assembler.storeLocalValue(incrDecl.getType().wordSize, incrDecl.getLocalBaseOffset());
-		assembler.emitJump(loopCondition);
+		int wordSize = forLoop.incrExpression.getType().wordSize;
+		assembler.storeLocalValue(wordSize, incrOffset);
 
-		int loopEnd = assembler.getNextInstructionAddress();
-		assembler.backPatchJump(jumpToLoopEnd, loopEnd);
-
-		assembler.setNextOffset(localSize);
+		int checkCondition = assembler.getNextInstructionAddress();
+		assembler.backPatchJump(jumpToCheck, checkCondition);
+		visit(forLoop.loopCondition);
+		assembler.emitConditionalJump(true, loopStart);
 		return null;
-
 	}
 	
 	@Override
@@ -373,66 +351,59 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		visit(returnStatement.returnValue);
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitCompoundStatement(CompoundStatement compoundStatement, Void __) {
 		// TODO implement (task 3.2)
-		int nextOffset = assembler.getNextOffset();
-		for (Statement statement : compoundStatement.statements) {
+		int offsetBefore = assembler.getNextOffset();
+
+		for(Statement statement: compoundStatement.statements){
 			visit(statement);
 		}
-		assembler.resetNextOffset(nextOffset);
+		assembler.resetNextOffset(offsetBefore);
+
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitSwitchStatement(SwitchStatement switchCaseStatement, Void __) {
 		// TODO implement (task 3.6)
-		int localSize = assembler.getNextOffset();
 
-		List<Instruction> jumps = new ArrayList<>();
-
+		int firstOffset = assembler.getNextOffset();
+		List<Instruction> caseEndJumps = new ArrayList<>();
 		visit(switchCaseStatement.condition);
-		assembler.setNextOffset(localSize + switchCaseStatement.condition.getType().wordSize);
-
-		for (Case namedCase : switchCaseStatement.cases) {
-			assembler.loadIntegerValue(localSize);
+		assembler.setNextOffset(firstOffset + switchCaseStatement.condition.getType().wordSize);
+		for (Case currCase : switchCaseStatement.cases) {
+			assembler.loadAddress(Register.LB, firstOffset);
 			assembler.loadFromStackAddress(1);
-			jumps.add(visit(namedCase));
-		}
+			Instruction endJump = visit(currCase);
+			caseEndJumps.add(endJump); }
 
 		if (!switchCaseStatement.defaults.isEmpty()) {
-			visit(switchCaseStatement.defaults.get(0));
-		}
+			visit(switchCaseStatement.defaults.get(0)); }
 
-		int switchEnd = assembler.getNextInstructionAddress();
-		for (Instruction jump : jumps) {
-			assembler.backPatchJump(jump, switchEnd);
-		}
+		int exitAddress = assembler.getNextInstructionAddress();
+		for (Instruction jumpInstruction : caseEndJumps) {
+			assembler.backPatchJump(jumpInstruction, exitAddress);}
+		assembler.resetNextOffset(firstOffset);
 
-		assembler.resetNextOffset(localSize);
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitCase(Case namedCase, Void __) {
 		// TODO implement (task 3.6)
 		assembler.loadIntegerValue(namedCase.getCondition());
 		assembler.emitIntegerComparison(Comparison.EQUAL);
-
 		Instruction jumpNextCase = assembler.emitConditionalJump(false, -1);
-
 		int nextOffset = assembler.getNextOffset();
 		visit(namedCase.body);
 		assembler.resetNextOffset(nextOffset);
-
 		Instruction jumpSwitchEnd = assembler.emitJump(0);
-		int startNextCase = assembler.getNextInstructionAddress();
-		assembler.backPatchJump(jumpNextCase, startNextCase);
-
+		assembler.backPatchJump(jumpNextCase, assembler.getNextInstructionAddress());
 		return jumpSwitchEnd;
 	}
-	
+
 	@Override
 	public Instruction visitDefault(Default defaultCase, Void __) {
 		// TODO implement (task 3.6)
@@ -767,18 +738,18 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		assembler.loadIntegerValue(type.dimension).addComment("vector dim", false);
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitUnaryMinus(UnaryMinus unaryMinus, Void __) {
 		// TODO implement (task 3.1)
-		Type type = unaryMinus.operand.getType();
 		visit(unaryMinus.operand);
-		if(type.equals(IntType.instance))
-			assembler.emitIntegerNegation();
-		else if(type.equals(FloatType.instance))
+		if(unaryMinus.operand.getType().equals(FloatType.instance)){
 			assembler.emitFloatNegation();
-		else
-			throw new InternalCompilerError(unaryMinus.getClass().getSimpleName() + " does not support structures for its right operand");
+		}
+		else{
+			assembler.emitIntegerNegation();
+		}
+		return null;
 	}
 	
 	@Override
@@ -787,11 +758,13 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		assembler.emitLogicalNot();
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitCallExpression(CallExpression callExpression, Void __) {
 		// TODO implement (task 3.1)
-		callExpression.actualParameters.forEach(this::visit);
+		for (Expression parameter: callExpression.actualParameters){
+			visit(parameter);
+		}
 		assembler.emitFunctionCall(callExpression.getCalleeDefinition());
 		return null;
 	}
@@ -935,27 +908,26 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitSubVector(SubVector subVector, Void __) {
 		// TODO implement (task 3.7)
-		int startOffset = subVector.getStartOffset();
+		int initOffset = subVector.getStartOffset();
 
-		int resSize = subVector.getType().wordSize;
 		int vecSize = subVector.structExpression.getType().wordSize;
+		int subVecSize = subVector.getType().wordSize;
 
 		visit(subVector.structExpression);
 		assembler.loadAddress(Register.ST, -vecSize);
 		visit(subVector.baseIndexExpression);
-		assembler.loadIntegerValue(startOffset);
+		assembler.loadIntegerValue(initOffset);
 		assembler.emitIntegerAddition();
-		assembler.emitBoundsCheck(0, vecSize - resSize + 1);
+		assembler.emitBoundsCheck(0, vecSize - subVecSize + 1);
 		assembler.emitIntegerAddition();
-		assembler.loadFromStackAddress(resSize);
-		assembler.emitPop(resSize, vecSize);
+		assembler.loadFromStackAddress(subVecSize);
+		assembler.emitPop(subVecSize, vecSize);
 
 		return null;
-
 	}
 	
 	@Override
@@ -998,22 +970,23 @@ public class CodeGenerator extends AstNodeBaseVisitor<Instruction, Void> {
 		/*/.addComment("load identifier '" + identifierReference.name + "'")/**/;
 		return null;
 	}
-	
+
 	@Override
 	public Instruction visitSelectExpression(SelectExpression exp, Void __) {
 		// TODO implement (task 3.4)
 		visit(exp.condition);
-		Instruction jumpOverThen = assembler.emitConditionalJump(false, -1);
+
+		Instruction condJumpToElse = assembler.emitConditionalJump(false, -1);
 		visit(exp.trueCase);
-		Instruction jumpOverElse = assembler.emitJump(-1);
+		Instruction jumpToEnd = assembler.emitJump(-1);
+		int thenEndAddress = assembler.getNextInstructionAddress();
+		assembler.backPatchJump(condJumpToElse, thenEndAddress);
 
-		int afterThen = assembler.getNextInstructionAddress();
-		assembler.backPatchJump(jumpOverThen, afterThen);
 		visit(exp.falseCase);
-
-		int afterElse = assembler.getNextInstructionAddress();
-		assembler.backPatchJump(jumpOverElse, afterElse);
+		int elseEndAddress = assembler.getNextInstructionAddress();
+		assembler.backPatchJump(jumpToEnd, elseEndAddress);
 
 		return null;
+
 	}
 }

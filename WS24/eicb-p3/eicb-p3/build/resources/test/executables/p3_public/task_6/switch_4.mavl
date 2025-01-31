@@ -1,0 +1,14 @@
+function void main() {
+    switch(2) {
+        case 0: {
+            printInt(0);
+        }
+        case 1: {
+            printInt(1);
+        }
+        default: {
+            printString("default");
+        }
+    }
+    printLine();
+}
