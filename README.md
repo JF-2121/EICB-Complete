@@ -38,7 +38,7 @@ Refer to the instructions in `HOWTO.md`.
 * Joshua
 * Lasse
 * Benedikt 
-
+----
 * Gabriel Eckhardt
 * Robin Kruppe
 * Sebastian Müller
