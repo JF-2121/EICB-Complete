@@ -1,0 +1,83 @@
+import org.gradle.api.internal.plugins.*
+
+class StartScriptForProjectTemplateBindingFactory
+		implements Transformer<Map<String, String>, JavaAppStartScriptGenerationDetails> {
+	
+	private boolean windows
+	private StartScriptTemplateBindingFactory delegate
+	
+	StartScriptForProjectTemplateBindingFactory(boolean windows) {
+		this.windows = windows
+		delegate = windows ? StartScriptTemplateBindingFactory.windows() : StartScriptTemplateBindingFactory.unix()
+	}
+	
+	Map<String, String> transform(JavaAppStartScriptGenerationDetails details) {
+		Map<String, String> binding = delegate.transform(details)
+		String cp = binding.get("classpath")
+		if(windows)
+			cp = cp.replace("%APP_HOME%\\", "")
+		else
+			cp = cp.replace("\$APP_HOME/", "")
+		binding.put("classpath", cp)
+		return binding
+	}
+}
+
+class UnixStartScriptForProjectGenerator extends DefaultTemplateBasedStartScriptGenerator {
+	UnixStartScriptForProjectGenerator() {
+		super("\n",
+				new StartScriptForProjectTemplateBindingFactory(false),
+				utf8ClassPathResource(UnixStartScriptGenerator.class, "unixStartScript.txt"))
+	}
+}
+
+class WindowsStartScriptForProjectGenerator extends DefaultTemplateBasedStartScriptGenerator {
+	WindowsStartScriptForProjectGenerator() {
+		super("\r\n",
+				new StartScriptForProjectTemplateBindingFactory(true),
+				utf8ClassPathResource(WindowsStartScriptGenerator.class, "windowsStartScript.txt"))
+	}
+}
+
+class CreateStartScriptsForProject extends CreateStartScripts {
+	@TaskAction
+	void generate() {
+		StartScriptGenerator generator = new StartScriptGenerator(unixStartScriptGenerator, windowsStartScriptGenerator)
+		generator.setApplicationName(getApplicationName())
+		generator.setMainClassName(mainClass.get())
+		generator.setOptsEnvironmentVar(getOptsEnvironmentVar())
+		generator.setExitEnvironmentVar(getExitEnvironmentVar())
+		generator.setClasspath(getClasspath().collect { it.toString()})
+		generator.setScriptRelPath('build/' + getUnixScript().getName())
+		generator.generateUnixScript(getUnixScript())
+		generator.generateWindowsScript(getWindowsScript())
+	}
+}
+
+tasks.register('mavlc', CreateStartScriptsForProject) {
+	dependsOn classes
+	description = "Creates a start script for MAVL compiler driver"
+	mainClass = "mavlc.Driver"
+	applicationName = "mavlc"
+	outputDir = project.buildDir
+	classpath = files([file('bin/'), sourceSets.main.output.classesDirs] + configurations.runtimeClasspath)
+	unixStartScriptGenerator = new UnixStartScriptForProjectGenerator()
+	windowsStartScriptGenerator = new WindowsStartScriptForProjectGenerator()
+}
+
+tasks.register('mtam', CreateStartScriptsForProject) {
+	dependsOn classes
+	description = "Creates a start script for the MTAM interpreter"
+	mainClass = "mtam.interpreter.InteractiveInterpreter"
+	applicationName = "mtam"
+	outputDir = project.buildDir
+	classpath = files([file('bin/'), sourceSets.main.output.classesDirs] + configurations.runtimeClasspath)
+	unixStartScriptGenerator = new UnixStartScriptForProjectGenerator()
+	windowsStartScriptGenerator = new WindowsStartScriptForProjectGenerator()
+}
+
+tasks.register('createScripts') {
+	description = "Creates start scripts for the MAVL compiler driver and the MTAM interpreter"
+	dependsOn 'mavlc'
+	dependsOn 'mtam'
+}

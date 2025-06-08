@@ -1,0 +1,44 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <VariableDeclaration line="2" column="4" name="m">
+          <typeSpecifier class="MatrixTypeSpecifier" line="2" column="8">
+            <type class="MatrixType" rows="3" cols="1">
+              <elementType class="FloatType"/>
+            </type>
+            <elementTypeSpecifier class="FloatTypeSpecifier" line="2" column="15">
+              <type class="FloatType"/>
+            </elementTypeSpecifier>
+            <rowsExpression class="IntValue" line="2" column="22" value="3">
+              <type class="IntType"/>
+            </rowsExpression>
+            <colsExpression class="IntValue" line="2" column="25" value="1">
+              <type class="IntType"/>
+            </colsExpression>
+          </typeSpecifier>
+          <type class="MatrixType" reference="../typeSpecifier/type"/>
+        </VariableDeclaration>
+        <ValueDefinition line="3" column="4" name="a">
+          <typeSpecifier class="IntTypeSpecifier" line="3" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+          <value class="MatrixRows" line="3" column="16">
+            <type class="IntType"/>
+            <operand class="IdentifierReference" line="3" column="16" name="m">
+              <type class="MatrixType" reference="../../../../VariableDeclaration/typeSpecifier/type"/>
+              <declaration class="VariableDeclaration" reference="../../../../VariableDeclaration"/>
+            </operand>
+          </value>
+        </ValueDefinition>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

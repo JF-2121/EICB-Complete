@@ -1,0 +1,4 @@
+function void main(){
+    var matrix<int>[1][3] a;
+    val bool x = a.rows;
+}

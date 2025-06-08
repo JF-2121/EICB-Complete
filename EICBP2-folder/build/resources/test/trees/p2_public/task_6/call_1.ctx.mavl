@@ -1,0 +1,7 @@
+function void main(){
+	val int x = foo();
+}
+
+function int foo(){
+    return 1;
+}

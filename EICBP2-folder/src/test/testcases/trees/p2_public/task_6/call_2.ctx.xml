@@ -1,0 +1,51 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="foo">
+      <returnTypeSpecifier class="IntTypeSpecifier" line="1" column="9">
+        <type class="IntType"/>
+      </returnTypeSpecifier>
+      <parameters>
+        <FormalParameter line="1" column="17" name="x">
+          <typeSpecifier class="IntTypeSpecifier" line="1" column="17">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+        </FormalParameter>
+      </parameters>
+      <body>
+        <ReturnStatement line="2" column="4">
+          <returnValue class="IdentifierReference" line="2" column="11" name="x">
+            <type class="IntType"/>
+            <declaration class="FormalParameter" reference="../../../../parameters/FormalParameter"/>
+          </returnValue>
+        </ReturnStatement>
+      </body>
+      <returnType class="IntType"/>
+    </Function>
+    <Function line="5" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="5" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="6" column="4" name="x">
+          <typeSpecifier class="IntTypeSpecifier" line="6" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+          <value class="CallExpression" line="6" column="16" functionName="foo">
+            <type class="IntType"/>
+            <actualParameters>
+              <IntValue line="6" column="20" value="1">
+                <type class="IntType"/>
+              </IntValue>
+            </actualParameters>
+            <callee reference="../../../../../Function"/>
+          </value>
+        </ValueDefinition>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

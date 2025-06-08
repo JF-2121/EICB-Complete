@@ -1,0 +1,77 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#FFC6C6", tooltip="main"]
+
+# SimpleNode FloatType
+node2 [label="FloatType", tooltip="FloatType"]
+
+# Literal 3
+node3 [shape=box, label="3", fillcolor="#cccccc", tooltip="3"]
+
+# SimpleNode IntLiteral
+node4:s -> node3:n
+node4 [label="IntLiteral", tooltip="IntLiteral"]
+
+# Literal 1
+node5 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node6:s -> node5:n
+node6 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode MatrixType
+node7:p0:s -> node2:n
+node7:p1:s -> node4:n
+node7:p2:s -> node6:n
+node7 [label="{MatrixType|{<p0>ElementType|<p1>Rows|<p2>Cols}}", tooltip="MatrixType"]
+
+# DeclarationLiteral m
+node8 [shape=box, label="m", fillcolor="#EAFDC5", tooltip="m"]
+
+# PortNode VarDecl
+node9:p0:s -> node7:n
+node9:p1:s -> node8:n
+node9 [label="{VarDecl|{<p0>Type|<p1>Name}}", tooltip="VarDecl"]
+
+# SimpleNode IntType
+node10 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral a
+node11 [shape=box, label="a", fillcolor="#E4C3F7", tooltip="a"]
+
+# ReferenceLiteral m
+node12 -> node8 [style=dashed, constraint=false, color="#7BB800"]
+node12 [shape=box, label="m", fillcolor="#EAFDC5", tooltip="m"]
+
+# SimpleNode Identifier
+node13:s -> node12:n
+node13 [label="Identifier", tooltip="Identifier"]
+
+# PortNode Rows
+node14:p0:s -> node13:n
+node14 [label="{Rows|{<p0>Operand}}", tooltip="Rows"]
+
+# PortNode ValDef
+node15:p0:s -> node10:n
+node15:p1:s -> node11:n
+node15:p2:s -> node14:n
+node15 [label="{ValDef|{<p0>Type|<p1>Name|<p2>Value}}", tooltip="ValDef"]
+
+# PortNode Function
+node16:p0:s -> node0:n
+node16:p1:s -> node1:n
+node16:p3_0:s -> node9:n
+node16:p3_1:s -> node15:n
+node16 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1|<p3_1>2}}}}", tooltip="Function"]
+
+# PortNode Module
+node17:p1_0:s -> node16:n
+node17 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}

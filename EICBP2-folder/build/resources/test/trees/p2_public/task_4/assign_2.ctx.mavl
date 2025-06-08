@@ -1,0 +1,4 @@
+function void main() {
+	var vector<float>[4] v;
+	v[2] = 5.0;
+}

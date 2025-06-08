@@ -1,0 +1,8 @@
+
+Invalid member 'x' of record 'rec':
+
+Faulty node in line 5, column 0:
+> record rec {
+> 	var r x;
+> }
+> 

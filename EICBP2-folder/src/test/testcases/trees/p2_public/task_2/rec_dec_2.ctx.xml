@@ -1,0 +1,30 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="6" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="6" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body/>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records>
+    <RecordTypeDeclaration line="1" column="0" name="rec">
+      <elements>
+        <RecordElementDeclaration line="2" column="4" name="x" isVariable="true">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+        </RecordElementDeclaration>
+        <RecordElementDeclaration line="3" column="4" name="y" isVariable="true">
+          <typeSpecifier class="IntTypeSpecifier" line="3" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+        </RecordElementDeclaration>
+      </elements>
+    </RecordTypeDeclaration>
+  </records>
+</Module>

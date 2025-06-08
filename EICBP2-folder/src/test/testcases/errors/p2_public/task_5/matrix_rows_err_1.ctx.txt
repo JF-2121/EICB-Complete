@@ -1,0 +1,5 @@
+
+Mismatching types 'bool' and 'int':
+
+Faulty node in line 3, column 4:
+> val bool x = a.rows;

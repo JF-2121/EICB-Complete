@@ -1,0 +1,36 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <ValueDefinition line="2" column="4" name="x">
+          <typeSpecifier class="IntTypeSpecifier" line="2" column="8">
+            <type class="IntType"/>
+          </typeSpecifier>
+          <type class="IntType"/>
+          <value class="IntValue" line="2" column="16" value="1">
+            <type class="IntType"/>
+          </value>
+        </ValueDefinition>
+        <CompoundStatement line="4" column="4">
+          <statements>
+            <ValueDefinition line="5" column="8" name="x">
+              <typeSpecifier class="IntTypeSpecifier" line="5" column="12">
+                <type class="IntType"/>
+              </typeSpecifier>
+              <type class="IntType"/>
+              <value class="IntValue" line="5" column="20" value="2">
+                <type class="IntType"/>
+              </value>
+            </ValueDefinition>
+          </statements>
+        </CompoundStatement>
+      </body>
+      <returnType class="VoidType"/>
+    </Function>
+  </functions>
+  <records/>
+</Module>

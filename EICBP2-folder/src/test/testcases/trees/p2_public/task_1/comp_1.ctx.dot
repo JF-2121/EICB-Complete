@@ -1,0 +1,64 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# SimpleNode VoidType
+node0 [label="VoidType", tooltip="VoidType"]
+
+# DeclarationLiteral main
+node1 [shape=box, label="main", fillcolor="#FFC6C6", tooltip="main"]
+
+# SimpleNode IntType
+node2 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral x
+node3 [shape=box, label="x", fillcolor="#EAFDC5", tooltip="x"]
+
+# Literal 1
+node4 [shape=box, label="1", fillcolor="#cccccc", tooltip="1"]
+
+# SimpleNode IntLiteral
+node5:s -> node4:n
+node5 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode ValDef
+node6:p0:s -> node2:n
+node6:p1:s -> node3:n
+node6:p2:s -> node5:n
+node6 [label="{ValDef|{<p0>Type|<p1>Name|<p2>Value}}", tooltip="ValDef"]
+
+# SimpleNode IntType
+node7 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral x
+node8 [shape=box, label="x", fillcolor="#E4C3F7", tooltip="x"]
+
+# Literal 2
+node9 [shape=box, label="2", fillcolor="#cccccc", tooltip="2"]
+
+# SimpleNode IntLiteral
+node10:s -> node9:n
+node10 [label="IntLiteral", tooltip="IntLiteral"]
+
+# PortNode ValDef
+node11:p0:s -> node7:n
+node11:p1:s -> node8:n
+node11:p2:s -> node10:n
+node11 [label="{ValDef|{<p0>Type|<p1>Name|<p2>Value}}", tooltip="ValDef"]
+
+# PortNode Compound
+node12:p0:s -> node11:n
+node12 [label="{Compound|{<p0>1}}", tooltip="Compound"]
+
+# PortNode Function
+node13:p0:s -> node0:n
+node13:p1:s -> node1:n
+node13:p3_0:s -> node6:n
+node13:p3_1:s -> node12:n
+node13 [label="{Function|{<p0>ReturnType|<p1>Name|{Parameters|{}}|{Statements|{<p3_0>1|<p3_1>2}}}}", tooltip="Function"]
+
+# PortNode Module
+node14:p1_0:s -> node13:n
+node14 [label="{Module|{{Records|{}}|{Functions|{<p1_0>1}}}}", tooltip="Module"]
+
+}
