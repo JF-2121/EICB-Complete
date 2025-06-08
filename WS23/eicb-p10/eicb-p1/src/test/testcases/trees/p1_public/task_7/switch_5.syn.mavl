@@ -1,6 +1,0 @@
-function void main(){
-  val int a = 10;
-
-  switch(a){
-  }
-}
