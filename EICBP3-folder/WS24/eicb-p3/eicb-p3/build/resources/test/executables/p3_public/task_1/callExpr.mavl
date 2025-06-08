@@ -1,0 +1,10 @@
+function int foo(int a, int b) {
+    return a*b + a*b;
+}
+
+function void main() {
+    printInt(foo(2,3));
+    printLine();
+    printInt(foo(3,4));
+    printLine();
+}

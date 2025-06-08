@@ -1,0 +1,8 @@
+function void main(){
+    var matrix<int>[1][1] mat;
+
+    mat[0][0] = 1;
+
+    printInt(mat[0][0]);
+    printLine();
+}

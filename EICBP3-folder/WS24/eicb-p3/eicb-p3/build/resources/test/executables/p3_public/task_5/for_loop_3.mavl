@@ -1,0 +1,11 @@
+function void main(){
+    var int i;
+    var int j;
+    for(i = 0; i < 3; i = i+1) {
+        j = i;
+    }
+    printInt(i);
+    printLine();
+    printInt(j);
+    printLine();
+}

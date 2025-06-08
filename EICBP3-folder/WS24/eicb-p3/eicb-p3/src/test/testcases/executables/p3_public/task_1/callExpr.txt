@@ -1,0 +1,4 @@
+12
+24
+
+The program has finished successfully.

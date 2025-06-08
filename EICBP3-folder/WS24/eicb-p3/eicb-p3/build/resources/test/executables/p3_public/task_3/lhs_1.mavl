@@ -1,0 +1,6 @@
+function void main(){
+    var float y;
+    y = 1.0;
+    printFloat(y);
+    printLine();
+}

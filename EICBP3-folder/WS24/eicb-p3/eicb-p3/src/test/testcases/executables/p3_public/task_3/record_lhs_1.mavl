@@ -1,0 +1,11 @@
+record rec {
+    var int i;
+    val int j;
+}
+
+function void main(){
+    var rec x;
+    x@i = 1;
+    printInt(x@i);
+    printLine();
+}

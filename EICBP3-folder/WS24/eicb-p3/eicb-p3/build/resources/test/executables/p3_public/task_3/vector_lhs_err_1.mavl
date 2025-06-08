@@ -1,0 +1,6 @@
+function void main(){
+    var matrix<int>[9][9] i;
+
+    i[0][10] = -42;
+    printInt([0][10]);
+}
