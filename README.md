@@ -34,10 +34,13 @@ Refer to the instructions in `HOWTO.md`.
 	prior written permission of the authors.
 
 ## Contributors
+
 (Exercice Workers) 
 * Joshua
 * Lasse
-* Benedikt 
+* Benedikt	
+<p></p>
+
 
 * Gabriel Eckhardt
 * Robin Kruppe
