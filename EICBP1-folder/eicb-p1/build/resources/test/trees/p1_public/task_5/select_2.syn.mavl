@@ -1,0 +1,3 @@
+function void main (){
+  switch (a | a ? b | b : c | c) {}
+}

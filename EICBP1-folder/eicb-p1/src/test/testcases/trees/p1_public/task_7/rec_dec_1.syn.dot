@@ -1,0 +1,48 @@
+digraph {
+node [shape=Mrecord, style=filled, fillcolor=white, fontname="Calibri"];
+graph [ordering=out, nodesep=0.3, ranksep=1];
+
+# DeclarationLiteral foo
+node0 [shape=box, label="foo", fillcolor="#cccccc", tooltip="foo"]
+
+# SimpleNode IntType
+node1 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral a
+node2 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# PortNode VarElement
+node3:p0:s -> node1:n
+node3:p1:s -> node2:n
+node3 [label="{VarElement|{<p0>Type|<p1>Name}}", tooltip="VarElement"]
+
+# PortNode Record
+node4:p0:s -> node0:n
+node4:p1_0:s -> node3:n
+node4 [label="{Record|{<p0>Name|{Elements|{<p1_0>1}}}}", tooltip="Record"]
+
+# DeclarationLiteral bar
+node5 [shape=box, label="bar", fillcolor="#cccccc", tooltip="bar"]
+
+# SimpleNode IntType
+node6 [label="IntType", tooltip="IntType"]
+
+# DeclarationLiteral a
+node7 [shape=box, label="a", fillcolor="#cccccc", tooltip="a"]
+
+# PortNode ValElement
+node8:p0:s -> node6:n
+node8:p1:s -> node7:n
+node8 [label="{ValElement|{<p0>Type|<p1>Name}}", tooltip="ValElement"]
+
+# PortNode Record
+node9:p0:s -> node5:n
+node9:p1_0:s -> node8:n
+node9 [label="{Record|{<p0>Name|{Elements|{<p1_0>1}}}}", tooltip="Record"]
+
+# PortNode Module
+node10:p0_0:s -> node4:n
+node10:p0_1:s -> node9:n
+node10 [label="{Module|{{Records|{<p0_0>1|<p0_1>2}}|{Functions|{}}}}", tooltip="Module"]
+
+}

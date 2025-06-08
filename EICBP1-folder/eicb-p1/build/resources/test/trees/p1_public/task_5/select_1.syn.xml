@@ -1,0 +1,22 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <SwitchStatement line="2" column="2">
+          <condition class="SelectExpression" line="2" column="10">
+            <condition class="IdentifierReference" line="2" column="10" name="a"/>
+            <trueCase class="IdentifierReference" line="2" column="14" name="b"/>
+            <falseCase class="IdentifierReference" line="2" column="18" name="c"/>
+          </condition>
+          <cases/>
+          <defaults/>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

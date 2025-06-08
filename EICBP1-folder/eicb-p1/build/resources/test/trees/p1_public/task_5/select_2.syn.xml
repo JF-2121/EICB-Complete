@@ -1,0 +1,31 @@
+<Module line="1" column="0">
+  <functions>
+    <Function line="1" column="0" name="main">
+      <returnTypeSpecifier class="VoidTypeSpecifier" line="1" column="9">
+        <type class="VoidType"/>
+      </returnTypeSpecifier>
+      <parameters/>
+      <body>
+        <SwitchStatement line="2" column="2">
+          <condition class="SelectExpression" line="2" column="10">
+            <condition class="Or" line="2" column="10">
+              <leftOperand class="IdentifierReference" line="2" column="10" name="a"/>
+              <rightOperand class="IdentifierReference" line="2" column="14" name="a"/>
+            </condition>
+            <trueCase class="Or" line="2" column="18">
+              <leftOperand class="IdentifierReference" line="2" column="18" name="b"/>
+              <rightOperand class="IdentifierReference" line="2" column="22" name="b"/>
+            </trueCase>
+            <falseCase class="Or" line="2" column="26">
+              <leftOperand class="IdentifierReference" line="2" column="26" name="c"/>
+              <rightOperand class="IdentifierReference" line="2" column="30" name="c"/>
+            </falseCase>
+          </condition>
+          <cases/>
+          <defaults/>
+        </SwitchStatement>
+      </body>
+    </Function>
+  </functions>
+  <records/>
+</Module>

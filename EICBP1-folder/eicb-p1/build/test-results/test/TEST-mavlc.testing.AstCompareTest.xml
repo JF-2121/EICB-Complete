@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mavlc.testing.AstCompareTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2024-11-22T19:00:39" hostname="DESKTOP-NC4RSIU" time="0.523">
+  <properties/>
+  <testcase name="test[p1_public/task_1/assign_1]" classname="mavlc.testing.AstCompareTest" time="0.325"/>
+  <testcase name="test[p1_public/task_1/val_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_1/var_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_2/arith_1]" classname="mavlc.testing.AstCompareTest" time="0.014"/>
+  <testcase name="test[p1_public/task_2/exp_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_2/not_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_3/if_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_3/if_2]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p1_public/task_4/bool_1]" classname="mavlc.testing.AstCompareTest" time="0.014"/>
+  <testcase name="test[p1_public/task_5/select_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_5/select_2]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_6/call_1]" classname="mavlc.testing.AstCompareTest" time="0.011"/>
+  <testcase name="test[p1_public/task_6/call_2]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <testcase name="test[p1_public/task_6/return_1]" classname="mavlc.testing.AstCompareTest" time="0.01"/>
+  <testcase name="test[p1_public/task_7/rec_atom_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_7/rec_dec_1]" classname="mavlc.testing.AstCompareTest" time="0.012"/>
+  <testcase name="test[p1_public/task_7/rec_sel_1]" classname="mavlc.testing.AstCompareTest" time="0.013"/>
+  <system-out><![CDATA[=== Running test case p1_public/task_1/assign_1 ===
+
+
+=== Test case p1_public/task_1/assign_1 finished successfully ===
+
+=== Running test case p1_public/task_1/val_1 ===
+
+
+=== Test case p1_public/task_1/val_1 finished successfully ===
+
+=== Running test case p1_public/task_1/var_1 ===
+
+
+=== Test case p1_public/task_1/var_1 finished successfully ===
+
+=== Running test case p1_public/task_2/arith_1 ===
+
+
+=== Test case p1_public/task_2/arith_1 finished successfully ===
+
+=== Running test case p1_public/task_2/exp_1 ===
+
+
+=== Test case p1_public/task_2/exp_1 finished successfully ===
+
+=== Running test case p1_public/task_2/not_1 ===
+
+
+=== Test case p1_public/task_2/not_1 finished successfully ===
+
+=== Running test case p1_public/task_3/if_1 ===
+
+
+=== Test case p1_public/task_3/if_1 finished successfully ===
+
+=== Running test case p1_public/task_3/if_2 ===
+
+
+=== Test case p1_public/task_3/if_2 finished successfully ===
+
+=== Running test case p1_public/task_4/bool_1 ===
+
+
+=== Test case p1_public/task_4/bool_1 finished successfully ===
+
+=== Running test case p1_public/task_5/select_1 ===
+
+
+=== Test case p1_public/task_5/select_1 finished successfully ===
+
+=== Running test case p1_public/task_5/select_2 ===
+
+
+=== Test case p1_public/task_5/select_2 finished successfully ===
+
+=== Running test case p1_public/task_6/call_1 ===
+
+
+=== Test case p1_public/task_6/call_1 finished successfully ===
+
+=== Running test case p1_public/task_6/call_2 ===
+
+
+=== Test case p1_public/task_6/call_2 finished successfully ===
+
+=== Running test case p1_public/task_6/return_1 ===
+
+
+=== Test case p1_public/task_6/return_1 finished successfully ===
+
+=== Running test case p1_public/task_7/rec_atom_1 ===
+
+
+=== Test case p1_public/task_7/rec_atom_1 finished successfully ===
+
+=== Running test case p1_public/task_7/rec_dec_1 ===
+
+
+=== Test case p1_public/task_7/rec_dec_1 finished successfully ===
+
+=== Running test case p1_public/task_7/rec_sel_1 ===
+
+
+=== Test case p1_public/task_7/rec_sel_1 finished successfully ===
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
